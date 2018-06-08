@@ -1,10 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Reverse String</title>
+	
+	<script type="text/javascript">
+		
 
 // Solution 1
 //=================================================
 
 function reverse(str) {
 
-	return str.split().reverse().join();
+	return str.split('').reverse().join('');
 }
 
 reverse('apple');
@@ -12,7 +19,7 @@ reverse('apple');
 // Solution 2
 //=================================================
 
-function reverse(str) {
+function reverse2(str) {
 
 	let reversed = '';
 
@@ -26,7 +33,15 @@ function reverse(str) {
 // Solution 3
 //=================================================
 
-function reverse(str) {
+function reverse3(str) {
 
 	return str.split('').reduce((rev, char) => char + rev, '');
 }
+
+	</script>
+</head>
+<body>
+
+
+</body>
+</html>
