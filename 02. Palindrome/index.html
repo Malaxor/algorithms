@@ -21,13 +21,11 @@ const palindrome = str => {
 
 const palindrome2 = str => {
 
-	return str.split('').every((char, index) => {
+	return str.split('').every((char, index) => 
 
-		return char === str[str.length - index - 1]
-	});
+		char === str[str.length - index - 1]
+	);
 }
-
-palindrome2('abcba');
 
 
 	</script>
