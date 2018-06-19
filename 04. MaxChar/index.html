@@ -2,9 +2,10 @@
 <html>
 <head>
 	<title>MaxChar</title>
-	
-	<script type="text/javascript">
-		
+</head>	
+
+<body>
+<script type="text/javascript">
 
 // Solution 
 //=====================================================
@@ -27,23 +28,18 @@ function maxChar(str) {
     }
   }
 
-  for (let char in charMap) {
+  for (let key in charMap) {
 
-    if (charMap[char] > max) {
-    	
-      max = charMap[char];
-      maxChar = char;
+    if (charMap[key] > max) {
+
+      max = charMap[key];
+      maxChar = key;
     }
   }
 
   return maxChar;
 }
-
-	
-	</script>
-</head>
-<body>
-
-
+  
+</script>
 </body>
 </html>
