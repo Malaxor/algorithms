@@ -30,7 +30,7 @@ function anagrams1(stringA, stringB) {
 function buildCharMap(str) {
 
 	const charMap = {};
-	// replace spaces and punctiuation with no spaces
+	// replace spaces and punctuation with no spaces
 	// ex: from 'Hello There!', to 'hellothere'
 	const clean_str = str.replace(/[^\w]/g, '').toLowerCase();
 
@@ -51,7 +51,7 @@ function anagrams2(stringA, stringB) {
 
 function cleanString(str) {
 
-	return replace(/[^\w]/g, '').toLowerCase().split('').sort().join('');
+	return str.replace(/[^\w]/g, '').toLowerCase().split('').sort().join('');
 }
 
 </script>
