@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Pyramid</title>
+</head>
+
+<body>
+<script type="text/javascript">
+		
+// Solution 1 	
+//======================================================================
+
+
+function pyramid(n) {
+
+	const midpoint = Math.floor((2 * n - 1) / 2);
+
+	for(row = 0; row < n; row++) {
+
+		let level = '';
+		// 2 * n(number of rows) - 1 is the formula for calculating the -->
+		// number of columns.
+		// if we call pyramid(3), the argument 3 means that there will be -->
+		// 3 rows that contains 5 column.
+		// all 5 column in the last row will be filled with pound signs. 
+		for(let col = 0; col < 2 * n - 1; col++) {
+			
+			if(midpoint - row <= col && midpoint + row >= col) {
+
+				level += '#';
+			}
+			else{
+				level += ' ';
+			}
+		}
+		console.log(level);
+	}
+}
+
+pyramid(3);
+
+// Solution 2
+//======================================================================
+
+function pyramid2(n) {
+
+
+}
+
+</script>
+</body>
+</html>
