@@ -30,10 +30,9 @@ function capitalize2(str) {
 	let result = str[0].toUpperCase;
 
 	for(let i = 1; i < str.length; i++) {
-
+		// str[i - 1] means one to the left of the current index 
 		if( str[i - 1] === ' ' ) {
-
-			result += str[i].toUpperCase;
+			result += str[i].toUpperCase();
 		}
 		else {
 			result += str[i];
