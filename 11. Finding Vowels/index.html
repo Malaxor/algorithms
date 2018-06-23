@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Finding Vowels</title>
+</head>
+
+<body>
+<script type="text/javascript">
+		
+// Solution 1 	
+//=============================================================================================
+
+function vowels(str) {
+
+	let count = 0;
+	const checker = ["a","e","i","o","u"];
+
+	for(let char of str.toLowerCase()) {
+
+		if(checker.includes(char)) {
+			count++;
+		}
+	}
+	return count;
+}
+
+// Solution 2	
+//=============================================================================================
+
+function vowels2(str) {
+	// g = checks globally(doesn't stop at first instance).
+	// i = case insensitive.
+	const matches = str.match(/[aeiou]/gi);
+	// str.match returns an array(truthy expression) if it finds one ore more matches.
+	// str.match returns null (falsey expression) if it doesn't find a match.
+	// this ternary expression establishes what happens when a truthy and falsey expression is returned.
+	// if it returns truthy, then display the length of the array(number of vowels found)
+	// else(falsey) return the number 0(zero vowels found).
+	return matches ? matches.length : 0;
+}
+
+</script>
+</body>
+</html>
