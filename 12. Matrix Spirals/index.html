@@ -12,7 +12,7 @@
 
 function matrix(n) {
 
-			const results = [];
+	const results = [];
 
 	for(let i = 0; i < n; i++) {
 
@@ -27,13 +27,13 @@ function matrix(n) {
 
 	while(startCol <= endCol && startRow <= endRow) {
 
-		// Top Row
+		// TOP ROW
 		// Ex: If we call matrix(3), then const results = [ [1, 2, 3], [], []];
-		// IMPORTANT: This for loop will execute the last index(LI)
+		// IMPORTANT: This for loop will execute the last index
 		// const results = 
 		// [ 
 		// 	[1, 2, 3], 
-		// 	[8, LI, 4], 
+		// 	[8, <9>, 4], 
 		// 	[7, 6, 5]
 		// ];
 		for(let i = startCol; i <= endCol; i++) {
@@ -43,13 +43,13 @@ function matrix(n) {
 		}
 		startRow++;
 
-		// Right Column
+		// RIGH COLUMN
 		//Ex: If we call matrix(3) -->
 		// const results = 
 		// [ 
 		// 	[1, 2, 3], 
-		// 	[null, null, 4], 
-		// 	[null, null, 5]
+		// 	[null, null, <4>], 
+		// 	[null, null, <5>]
 		// ];
 		for(let i = startRow; i <= endRow; i++) {
 
@@ -64,7 +64,7 @@ function matrix(n) {
 		// [ 
 		// 	[1, 2, 3], 
 		// 	[null, null, 4], 
-		// 	[7, 6, 5]
+		// 	[<7>, <6>, 5]
 		// ];
 		for(let i = endCol; i >= startCol; i--) {
 
@@ -78,7 +78,7 @@ function matrix(n) {
 		// const results = 
 		// [ 
 		// 	[1, 2, 3], 
-		// 	[8, null, 4], 
+		// 	[<8>, null, 4], 
 		// 	[7, 6, 5]
 		// ];
 		for(let i = endRow; i >= startRow; i--) {
@@ -90,9 +90,6 @@ function matrix(n) {
 	}
 	return results;
 }
-
-matrix(3);
-
 
 </script>
 </body>
