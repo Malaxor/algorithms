@@ -39,23 +39,23 @@ function fib2(n) {
 // Solution 2 (with generic memoization function)
 //======================================================
 
-const fib2 = memoize(fib2)
+// const fib2 = memoize(fib2)
 
-function memoize(fn) {
+// function memoize(fn) {
 
-	const cache = {};
+// 	const cache = {};
 
-	return function(...args) {
+// 	return function(...args) {
 
-		if(cache[args]) {
-			return cache[args];
-		}
-		const result = fn.apply(this, args);
-		cache[args] = result;
+// 		if(cache[args]) {
+// 			return cache[args];
+// 		}
+// 		const result = fn.apply(this, args);
+// 		cache[args] = result;
 
-		return result;
-	};
-}
+// 		return result;
+// 	};
+// }
 
 </script>
 </body>

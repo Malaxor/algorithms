@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Queue</title>
+</head>
+
+<body>
+<script type="text/javascript">
+		
+// Solution 
+//======================================================
+
+class Queue {
+	
+	constructor() {
+		this.array = [];
+	}
+	add(...record) {
+		this.array.unshift(...record);
+	}
+	remove() {
+		return this.array.pop();
+	}
+	peek() {
+		return this.array[this.array.length - 1];
+	}
+}
+
+
+</script>
+</body>
+</html>

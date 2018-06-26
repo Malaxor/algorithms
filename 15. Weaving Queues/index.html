@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Weaving Queues</title>
+</head>
+
+<body>
+<script type="text/javascript">
+		
+// Solution 
+//======================================================
+
+class Queue {
+	
+	constructor() {
+		this.array = [];
+	}
+	add(...record) {
+		this.array.unshift(...record);
+	}
+	remove() {
+		return this.array.pop();
+	}
+	peek() {
+		return this.array[this.array.length - 1];
+	}
+}
+
+function weave(source1, source2) {
+	
+	const q = new Queue();
+	
+	while( source1.peek() !== undefined || source2.peek() !== undefined ) {
+
+		if(source1.peek() !== undefined) {
+			q.add(source1.remove())
+		}
+		if(source2.peek() !== undefined) {
+			q.add(source2.remove())
+		}
+	}
+	return q;	
+}
+
+</script>
+</body>
+</html>
