@@ -8,7 +8,7 @@
 <script type="text/javascript">
 		
 // Solution 1 (Quadratic Runtime Complexity: Nested for loop)
-//======================================================================
+//================================================================
 
 function steps(n) {
 
@@ -23,7 +23,7 @@ function steps(n) {
 				stair += '#';
 			}
 			else {
-				stair += ' _ ';
+				stair += ' ';
 			}
 		}
 		console.log(stair);
@@ -31,7 +31,7 @@ function steps(n) {
 }
 
 // Solution 2
-//======================================================================
+//================================================================
 
 function steps2(n, row = 0, stair = '') {
 
@@ -50,8 +50,6 @@ function steps2(n, row = 0, stair = '') {
 	}
 	steps2(n, row, stair);
 }
-
-steps2(3);
 
 </script>
 </body>

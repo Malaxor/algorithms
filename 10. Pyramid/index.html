@@ -11,7 +11,7 @@
 //=============================================================================
 
 function pyramid(n) {
-	// midpoint index, within the string, based on the number of rows
+	// midpoint index within the string, based on the number of rows
 	const midpoint = Math.floor((2 * n - 1) / 2);
 
 	for(row = 0; row < n; row++) {
@@ -35,8 +35,6 @@ function pyramid(n) {
 	}
 }
 
-pyramid(3);
-
 // Solution 2
 //=============================================================================
 
@@ -48,19 +46,18 @@ function pyramid2(n, row = 0, level = '') {
 	if(level.length === 2 * n - 1) {
 
 		console.log(level);
-		return pyramid(n, row + 1);
+		return pyramid2(n, row + 1);
 	}
 	const midpoint = Math.floor((2 * n - 1) / 2);
-	let add;
 	if(midpoint - row <= level.length && midpoint + row >= level.length) {
-		add = '#';
+		level += '#';
 	}
 	else {
-		add = ' ';
+		level += ' ';
 	}
-	pyramid2(n, row, level + add);
+	pyramid2(n, row, level);
 }
-pyramid2(4);
+
 
 </script>
 </body>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Queue from Stacks</title>
+</head>
+
+<body>
+<script type="text/javascript">
+		
+// Solution 
+//========================================================
+
+class Stack {
+
+	constructor() {
+		this.array = [];
+	}
+	push(record) {
+		this.array.push(record);
+	}
+	pop() {
+		return this.array.pop();
+	}
+	peek() {
+		return this.array[this.array.length - 1];
+	}
+}
+
+class Queue {
+
+	constructor() {
+
+		this.first = new Stack();
+		this.second = new Stack();
+	}
+	add(record) {
+
+		this.first.push(record);
+	}
+	remove() {
+
+		while(this.first.peek()) {
+			this.second.push(this.first.pop);
+		}
+		const record = this.second.pop();
+
+		while(this.second.peek()) {
+			this.first.push(this.first.pop());
+		}
+		return record;
+	}
+	peek() {
+
+		while(this.first.peek()) {
+
+			this.second.push(this.first.pop());
+		}
+		const record = this.second.peek();
+
+		while(this.second.peek()) {
+
+			this.first.push(this.second.pop());
+		}
+		return record;
+	}
+}
+
+</script>
+</body>
+</html>
