@@ -15,8 +15,8 @@ class Queue {
 	constructor() {
 		this.array = [];
 	}
-	add(...record) {
-		this.array.unshift(...record);
+	add(record) {
+		this.array.unshift(record);
 	}
 	remove() {
 		return this.array.pop();
@@ -25,7 +25,6 @@ class Queue {
 		return this.array[this.array.length - 1];
 	}
 }
-
 
 </script>
 </body>
