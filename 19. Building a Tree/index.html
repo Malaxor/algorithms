@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Building a Tree</title>
+</head>	
+	
+<body>
+<script type="text/javascript">
+
+// Solution
+//================================================================
+
+class Node {
+
+	constructor(data) {
+
+		this.data = data;
+		this.children = [];
+	}
+	add(data) {
+
+		const node = new Node(data);
+		this.children.push(node);
+	}
+	remove(data) {
+
+		this.children = this.children.filter(node => 
+			// keep only the elements that DO NOT equal 'data'
+			node.data !== data
+		);
+	}
+}
+
+class Tree {
+
+	constructor() {
+
+		this.root = null;
+	}
+	traverseBF(fn) {
+
+		const arr = [this.root];
+
+		while(arr.length) {
+			// shift removes the first element
+			const node = arr.shift();
+			// the spread operator removes the children from the children array
+			arr.push(...node.children);
+			fn(node);
+		}
+	}
+	traverseDF(fn) {
+
+		const arr = [this.root];
+
+		while(arr.length) {
+
+			const node = arr.shift();
+			arr.unshift(...node.children);
+			fn(node);
+		}
+	}
+}
+
+</script>
+</body>
+</html>
