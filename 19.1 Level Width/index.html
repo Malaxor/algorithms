@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Building a Tree</title>
+	<title>Building a Tree: Level Width</title>
 </head>	
 	
 <body>
@@ -31,35 +31,28 @@ class Node {
 	}
 }
 
-class Tree {
+// root = Node
+function levelWidth(root) {
 
-	constructor() {
+	const arr = [root, 's'];
+	const counter = [0];
 
-		this.root = null;
-	}
-	traverseBF(fn) {
+	while(arr.length > 1) {
 
-		const arr = [this.root];
+		const node = arr.shift();
 
-		while(arr.length) {
-			// shift removes the first element
-			const node = arr.shift();
-			// the spread operator removes the children from the children array
+		if(node === 's') {
+
+			counter.push(0);
+			arr.push('s');
+		}
+		else {
+
 			arr.push(...node.children);
-			fn(node);
+			counter[counter.length - 1]++;
 		}
 	}
-	traverseDF(fn) {
-
-		const arr = [this.root];
-
-		while(arr.length) {
-
-			const node = arr.shift();
-			arr.unshift(...node.children);
-			fn(node);
-		}
-	}
+	return counter;
 }
 
 </script>
