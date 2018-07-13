@@ -35,32 +35,36 @@ class Tree {
 
 	constructor() {
 
-		this.root = null;
-	}
+    	this.root = null;
+  	}
+
 	traverseBF(fn) {
 
-		const arr = [this.root];
+  		const arr = [this.root];
 
-		while(arr.length) {
-			// shift removes the first element
-			const node = arr.shift();
-			// the spread operator removes the children from the children array
-			arr.push(...node.children);
-			fn(node);
-		}
-	}
-	traverseDF(fn) {
+   		while (arr.length) {
 
-		const arr = [this.root];
+      		const node = arr.shift();
 
-		while(arr.length) {
+      		arr.push(...node.children);
+     		fn(node);
+   		}
+  	}
 
-			const node = arr.shift();
-			arr.unshift(...node.children);
-			fn(node);
-		}
-	}
+  	traverseDF(fn) {
+
+    	const arr = [this.root];
+
+    	while (arr.length) {
+
+    		const node = arr.shift();
+
+      		arr.unshift(...node.children);
+      		fn(node);
+    	}
+  	}
 }
+
 
 </script>
 </body>
