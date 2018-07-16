@@ -49,34 +49,42 @@ function selectionSort(arr) {
 	}
 	return arr;
 }
-// example: const nums = [97, 10];
+// example: const nums = [97, 0, 22, -30];
 function mergeSort(arr) {
 
 	if(arr.length === 1) {
 		return arr;
 	}
-	const center = Math.floor(arr.length / 2);
-	const left = arr.slice(0, center);
-	const right = arr.slice(center);
+	const center = Math.floor(arr.length / 2); // index 2
+	const left = arr.slice(0, center); // [97, 0] 
+	const right = arr.slice(center); // [22, -30] 
 
+	// first call: merge(mergeSort([97, 0]), mergeSort([22, -30]));
+	// second call(left side): merge(mergeSort([97]), mergeSort([0]));
+	// second call(right side): merge(mergeSort([22]), mergeSort([-30]));
 	return merge(mergeSort(left), mergeSort(right));
 }
-
+// left side: merge([97], [0]);
+// right side: merge([22],[-30]);
 function merge(left, right) {
 
 	const results = [];
 
 	while(left.length && right.length) {
-
+		// left = [97] ; right = [0]
+		// left = [22] ; right = [-30]
 		if(left[0] < right[0]) {
 
 			results.push(left.shift());
 		} 
 		else {
-
+			// left side: results = [0] // right = [97];
+			// right side: results = [-30] // left = [22];
 			results.push(right.shift());
 		}
 	}
+	// left side: return array = [0, 97];
+	// right side: return arrau = [-30, 22];
 	return [...results, ...left, ...right];
 }
 
