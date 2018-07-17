@@ -55,11 +55,12 @@ function mergeSort(arr) {
 	if(arr.length === 1) {
 		return arr;
 	}
-	const center = Math.floor(arr.length / 2); // index 2
+	const center = Math.floor(arr.length / 2); // index 2 // [97, 0, <22>, -30]
 	const left = arr.slice(0, center); // [97, 0] 
 	const right = arr.slice(center); // [22, -30] 
-
+	// for clarity, i've replaced variables const left and const right with their values
 	// first call: merge(mergeSort([97, 0]), mergeSort([22, -30]));
+	/* merge(LEFT SIDE, RIGHT SIDE) */
 	// second call(left side): merge(mergeSort([97]), mergeSort([0]));
 	// second call(right side): merge(mergeSort([22]), mergeSort([-30]));
 	return merge(mergeSort(left), mergeSort(right));
@@ -84,7 +85,7 @@ function merge(left, right) {
 		}
 	}
 	// left side: return array = [0, 97];
-	// right side: return arrau = [-30, 22];
+	// right side: return array = [-30, 22];
 	return [...results, ...left, ...right];
 }
 
