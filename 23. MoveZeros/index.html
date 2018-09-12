@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Move Zeros</title>
+</head>	
+	
+<body>
+<script type="text/javascript">
+
+// Solution 
+//=============================================================
+
+const numbers = [0, 1, 0, 2, 3, 5, 0, 10, 88];
+
+function moveZeros(arr) {
+
+	const nonZeros = [];
+	const zeros = [];
+
+	arr.forEach(item => {
+
+		if(item === 0) {
+			zeros.push(item);
+		}
+		else {
+			nonZeros.push(item);
+		}
+	});
+	return [ ...nonZeros, ...zeros ];
+}
+
+console.log(moveZeros(numbers));
+
+</script>
+</body>
+</html>

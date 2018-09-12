@@ -12,16 +12,16 @@
 
 function vowels(str) {
 
-	let count = 0;
-	const checker = ["a","e","i","o","u"];
+	const checker = ['a', 'e', 'i', 'o', 'u'];
+	let counter = 0;
 
-	for(let char of str.toLowerCase()) {
+	for(let char in str.toLowerCase()) {
 
-		if(checker.includes(char)) {
-			count++;
+		if(checker.inlcudes(char)) {
+			counter += 1;
 		}
 	}
-	return count;
+	return counter;
 }
 
 // Solution 2	
@@ -33,7 +33,7 @@ function vowels2(str) {
 	const matches = str.match(/[aeiou]/gi);
 	// str.match returns an array(truthy expression) if it finds one or more matches.
 	// str.match returns null (falsey expression) if it doesn't find a match.
-	// this ternary expression establishes what happens when a truthy and falsey expression are returned.
+	// this ternary expression establishes what happens when a truthy or falsey expression is returned.
 	// if it returns truthy, then display the length of the array(number of vowels found)
 	// else(falsey) return the number 0(zero vowels found).
 	return matches ? matches.length : 0;

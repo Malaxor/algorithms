@@ -22,7 +22,7 @@ function pyramid(n) {
 		// if we call pyramid(3), the argument 3 means that there will be -->
 		// 3 rows that contains 5 columns each.
 		// all 5 columns in the last row will be filled with pound signs. 
-		for(let col = 0; col < 2 * n - 1; col++) {
+		for(let col = 0; col < (2 * n - 1); col++) {
 			
 			if(midpoint - row <= col && midpoint + row >= col) {
 				level += '#';
@@ -43,7 +43,7 @@ function pyramid2(n, row = 0, level = '') {
 	if(row === n) {
 		return;
 	}
-	if(level.length === 2 * n - 1) {
+	if(level.length === (2 * n - 1)) {
 
 		console.log(level);
 		return pyramid2(n, row + 1);

@@ -18,10 +18,10 @@ function anagrams(stringA, stringB) {
 	if(Object.keys(aCharMap).length !== Object.keys(bCharMap).length) {
 		return false;
 	}
-	for(let char in aCharMap) {
+	for(let key in aCharMap) {
 
-		if(aCharMap[char] !== bCharMap[char]) {
-			return false;
+		if(aCharMap[key] !== bCharMap[key]) {
+			return false
 		}
 	}
 	return true;
@@ -30,8 +30,6 @@ function anagrams(stringA, stringB) {
 function buildCharMap(str) {
 
 	const charMap = {};
-	// replace spaces and punctuation with no spaces
-	// ex: from 'Hello There!', to 'hellothere'
 	const clean_str = str.replace(/[^\w]/g, '').toLowerCase();
 
 	for(let char of clean_str) {
