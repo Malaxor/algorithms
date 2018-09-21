@@ -7,7 +7,8 @@
 <body>
 <script type="text/javascript">
 
-const nums = [5, 7, 12, 16, 36, 39, 42, 56, 71];
+const nums = [100, 3, 2, 90, 88, 13, 200];
+const sortedNums = nums.sort((a, b) => a - b);
 
 // binary serach within a SORTED numbers array
 function binarySearch(arr, key) {
@@ -16,7 +17,7 @@ function binarySearch(arr, key) {
     const middleIndex = Math.floor(arr.length / 2);
     // set middle index
     const middleElem = arr[middleIndex];
-    
+
     // returns number for which we were searching
     // can also return true IF that key is inside the array
     if(middleElem === key) {
@@ -37,9 +38,7 @@ function binarySearch(arr, key) {
     }
 
 }
-console.log(binarySearch(nums, 56));
-
-
+console.log(binarySearch(sortedNums, 13));
 
 </script>
 </body>
