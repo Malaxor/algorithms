@@ -7,6 +7,38 @@
 <body>
 <script type="text/javascript">
 
+const nums = [5, 7, 12, 16, 36, 39, 42, 56, 71];
+
+// binary serach within a SORTED numbers array
+function binarySearch(arr, key) {
+
+    // find middle index of array
+    const middleIndex = Math.floor(arr.length / 2);
+    // set middle index
+    const middleElem = arr[middleIndex];
+    
+    // returns number for which we were searching
+    // can also return true IF that key is inside the array
+    if(middleElem === key) {
+
+        return middleElem;
+    }
+    else if(middleElem < key && arr.length > 1) {
+        // this recursive method returns the second half of the array
+        return binarySearch(arr.splice(middleIndex, arr.length), key);
+    }
+    else if(middleElem > key && arr.length > 1) {
+        // returns the first half
+        return binarySearch(arr.splice(0, middleIndex), key);
+    }
+    // when the key is not present in the num array
+    else {
+        return false;
+    }
+
+}
+console.log(binarySearch(nums, 56));
+
 
 
 </script>
