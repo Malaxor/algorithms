@@ -15,18 +15,9 @@ const numbers = [0, 1, 0, 2, 3, 5, 0, 10, 88];
 function moveZeros(arr) {
 
 	const nonZeros = [];
-	const zeros = [];
+	const zeros = arr.filter(number => number === 0);
 
-	arr.forEach(item => {
-
-		if(item === 0) {
-			zeros.push(item);
-		}
-		else {
-			nonZeros.push(item);
-		}
-	});
-	return [ ...nonZeros, ...zeros ];
+	return [...nonZeros, ...zeros];	
 }
 
 console.log(moveZeros(numbers));

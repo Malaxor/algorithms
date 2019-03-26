@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Remove Duplicates</title>
+</head>	
+	
+<body>
+<script type="text/javascript">
+
+
+
+const nums = [1, 1, 2, 3, 3, 4];
+
+// Solution 1 (when keeping the arrangment matters)
+//================================================================
+
+function removeDuplicates(arr) {
+
+    const results = arr.filter((item, index) => {
+
+       return array.indexOf(item) === index; 
+    });
+    return results;
+}
+
+// Solution 2 (when the arrangment can be sorted)
+//================================================================
+
+function removeDuplicates2(arr) {
+
+    const sortedArr = arr.sort((a, b) => a - b);
+
+    const b = [];
+    let temp;
+
+    sortedArr.forEach(item => {
+
+        if(item !== temp) {
+
+            b.push(item);
+            temp = item;
+        }
+    });
+    return b;
+}
+
+// Solution 3 (ES6)
+//================================================================
+
+const remDup = Array.from(new Set(nums));
+
+</script>
+</body>
+</html>

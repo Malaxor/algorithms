@@ -12,23 +12,25 @@
 
 function maxChar(str) {
 
-  const charMap = {};
-  let max = 0;
-  let maxChar = '';
+	const charMap = {};
+   const char = {
+      character: '',
+      instances: 0
+   };
 
-  for(let char of str) {
+	for(let char of str) {
+      
+		charMap[char] = charMap[char] + 1 || 1;
+	}
+	for(let key in charMap) {
 
-    charMap[char] = charMap[char] + 1 || 1;
-  }
-  for(let key in charMap) {
+		if(charMap[key] > char.instances) {
 
-    if(charMap[key] > max) {
-
-      max = charMap[key];
-      maxChar = key;
-    }
-  }
-  return maxChar;
+			char.instances = charMap[key];
+			char.character = key;
+		}
+	}
+	return char;
 }
 
 </script>

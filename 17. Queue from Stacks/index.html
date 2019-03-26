@@ -38,7 +38,7 @@ class Queue {
 	remove() {
 
 		while(this.first.peek()) {
-			this.second.push(this.first.pop);
+			this.second.push(this.first.pop());
 		}
 		const record = this.second.pop();
 

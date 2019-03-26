@@ -7,7 +7,7 @@
 <body>
 <script type="text/javascript">
 
-// Solution
+// Bubble Sort
 //================================================================
 
 function bubbleSort(arr) {
@@ -20,12 +20,15 @@ function bubbleSort(arr) {
 
 				let lesser = arr[j + 1];
 				arr[j + 1] = arr[j];
-				arr[j] = arr[j + 1];
+				arr[j] = lesser;
 			}
 		}
 	}
 	return arr;
 }
+
+// Selection Sort
+//================================================================
 
 function selectionSort(arr) {
 
@@ -49,6 +52,8 @@ function selectionSort(arr) {
 	}
 	return arr;
 }
+// Merge Sort
+//================================================================
 // example: const nums = [97, 0, 22, -30];
 function mergeSort(arr) {
 

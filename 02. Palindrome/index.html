@@ -12,6 +12,8 @@
 
 const palindrome = str => {
 
+	// remove all non alphanumeric (including _ ) characters
+	str = str.replace(/\W/g, '').toLowerCase();
 	const reversed = str.split('').reverse().join('');
 
 	return str === reversed;
@@ -21,8 +23,10 @@ const palindrome = str => {
 //=====================================================
 
 const palindrome2 = str => {
+	// replace all non alphanumeric (including _ ) characters with nothing
+	str = str.replace(/\W/g, '').toLowerCase();
 
-	return str.split('').every((char, index) => 
+	return [...str].every((char, index) => 
 
 		char === str[str.length - index - 1]
 	);

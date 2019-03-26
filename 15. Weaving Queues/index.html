@@ -10,13 +10,15 @@
 // Solution 
 //=============================================================================
 
+const arr = [];
+
 class Queue {
 	
 	constructor() {
 		this.array = [];
 	}
-	add(...record) {
-		this.array.unshift(...record);
+	add(record) {
+		this.array.unshift(record);
 	}
 	remove() {
 		return this.array.pop();
@@ -26,6 +28,18 @@ class Queue {
 	}
 }
 
+const queue1 = new Queue();
+queue1.add(1);
+queue1.add(2);
+queue1.add(3);
+console.log(queue1);
+
+const queue2 = new Queue();
+queue2.add(4);
+queue2.add(5);
+queue2.add(6);
+console.log(queue2);
+
 function weave(source1, source2) {
 	
 	const q = new Queue();
@@ -33,10 +47,10 @@ function weave(source1, source2) {
 	while(source1.peek() !== undefined || source2.peek() !== undefined) {
 
 		if(source1.peek() !== undefined) {
-			q.add(source1.remove())
+			q.add(source1.remove());
 		}
 		if(source2.peek() !== undefined) {
-			q.add(source2.remove())
+			q.add(source2.remove());
 		}
 	}
 	return q;	

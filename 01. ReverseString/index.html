@@ -12,7 +12,7 @@
 
 function reverse(str) {
 
-	return str.split('').reverse().join('');
+	return [...str].reverse().join('');
 }
 
 // Solution 2
@@ -34,80 +34,9 @@ function reverse2(str) {
 
 function reverse3(str) {
 
-	return str.split('').reduce((rev, char) => char + rev, '');
+	return [...str].reduce((rev, char) => char + rev, '');
 }
-
-
-// Tech Interview Session with Miriam Sallam // 
-
-// write a function that reverses a String
-
-// declare a function
-function reverseStr(str) {
-
-	// inside the function, before the for loop, delcare a variable to contain the reversed String
-	let reversed = '';
-
-	// for loop to iterate through the string, starting at the end of the String
-	for(let i = str.length - 1; i >= 0; i--) {
-
-	// 'philip // str[i] =  'p'
-	reversed = reversed + str[i]; 
-}
-	// once the iteration is complete, return the reversed string variable
-	return reversed; 
-};
-// end function
-
-// invoke function
-console.log(reverseStr('philip'));
-
-
-var myObject = {
-
-    foo: "bar",
-
-    func: function() {
-
-        var self = this;
-
-        console.log("outer func:  this.foo = " + this.foo); // this.foo: 'bar'
-        console.log("outer func:  self.foo = " + self.foo); // self.foo: 'bar'
-
-        (function() {
-
-            console.log("inner func:  this.foo = " + this.foo); // undefined
-            console.log("inner func:  self.foo = " + self.foo); // self.foo: 'bar'
-        }());
-    }
-};
-
-myObject.func();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 </script>
 </body>
 </html>
-
-
-
