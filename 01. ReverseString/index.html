@@ -2,38 +2,29 @@
 <html>
 <head>
 	<title>Reverse String</title>
-</head>	
-	
+</head>
 <body>
 <script type="text/javascript">
 
 // Solution 1
 //=============================================================
-
 function reverse(str) {
-
 	return [...str].reverse().join('');
 }
-
 // Solution 2
 //==============================================================
-
 function reverse2(str) {
 
 	let reversed = '';
-
+	
 	for(let char of str) {
-		
 		reversed = char + reversed;
 	}
 	return reversed;
 }
-
 // Solution 3
 //==============================================================
-
 function reverse3(str) {
-
 	return [...str].reduce((rev, char) => char + rev, '');
 }
 

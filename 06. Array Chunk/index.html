@@ -9,7 +9,6 @@
 		
 // Solution 1 	
 //====================================================
-
 const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 function chunk(arr, size) {
@@ -29,23 +28,19 @@ function chunk(arr, size) {
 	}
 	return chunked;
 }
-
 // Solution 2 	
 //====================================================
-
 function chunk2(arr, size) {
 
    const chunked = [];
 	let index = 0;
 
 	while(index < arr.length) {
-
 		chunked.push(arr.slice(index, index + size));
 		index += size;
 	} 
    return chunked;
 }
-
 </script>
 </body>
 </html>

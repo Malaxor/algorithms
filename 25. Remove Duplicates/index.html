@@ -17,7 +17,6 @@ const nums = [1, 1, 2, 3, 3, 4];
 function removeDuplicates(arr) {
 
     const results = arr.filter((item, index) => {
-
        return array.indexOf(item) === index; 
     });
     return results;
@@ -46,8 +45,8 @@ function removeDuplicates2(arr) {
 
 // Solution 3 (ES6)
 //================================================================
-
-const remDup = Array.from(new Set(nums));
+const remDupA = Array.from(new Set(nums));
+const remDupB = [... new Set(nums)];
 
 </script>
 </body>
