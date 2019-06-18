@@ -10,21 +10,21 @@
 // Solution 
 //=====================================================
 
-function maxChars(str) {
+function maxChar(str) {
 
 	const charMap = {};
    const charObj = {
-      chars: [],
+      characters: [],
       instances: 0
    };
 	for(let char of str) {
 		charMap[char] = charMap[char] + 1 || 1;
 	}
 	for(let key in charMap) {
-
+		
 		if(charMap[key] >= charObj.instances) {
 			charObj.instances = charMap[key];
-			charObj.chars.push(key);
+			charObj.characters.push(key);
 		}
 	}
 	return charObj;

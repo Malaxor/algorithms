@@ -11,7 +11,7 @@
 //========================================================
 
 class Node {
-	
+
 	constructor(data, next = null) {
 		this.data = data; 
 		this.next = next;
@@ -21,11 +21,9 @@ class Node {
 class LinkedList {
 
 	constructor() {
-
 		this.head = null;
 	}
 	insertFirst(data) {
-
 		this.head = new Node(data, this.head);
 	}
 	size() {
@@ -59,7 +57,6 @@ class LinkedList {
 		}
 	}
 	clear() {
-
 		this.head = null;
 	}
 	removeFirst() {
@@ -75,7 +72,6 @@ class LinkedList {
 			return;
 		}
 		if(!this.head.next) {
-
 			this.head = null;
 			return;
 		}
@@ -83,7 +79,6 @@ class LinkedList {
 		let node = this.head.next;
 
 		while(node.next) {
-
 			previous = node;
 			node = node.next;
 		}

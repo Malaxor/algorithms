@@ -15,15 +15,15 @@ function chunk(arr, size) {
 
 	const chunked = [];
 
-	for(let element of arr) {
-		
-      const intArr = chunked[chunked.length - 1];
+	for(let elem of arr) {
 
-		if(!intArr || intArr.length === size) {
-			chunked.push([element]);
+		const interArr = chunked[chunked.length - 1];
+		
+		if(!interArr || interArr.length === size) {
+			chunked.push([elem]);
 		}
 		else {
-			intArr.push(element);
+			interArr.push(elem);
 		}
 	}
 	return chunked;
@@ -37,10 +37,11 @@ function chunk2(arr, size) {
 
 	while(index < arr.length) {
 		chunked.push(arr.slice(index, index + size));
-		index += size;
+	   index += size;
 	} 
    return chunked;
 }
+
 </script>
 </body>
 </html>

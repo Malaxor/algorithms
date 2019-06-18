@@ -18,7 +18,6 @@ function anagrams(stringA, stringB) {
 		return false;
 	}
 	for(let key in aCharMap) {
-
 		if(aCharMap[key] !== bCharMap[key]) {
 			return false;
 		}
@@ -37,11 +36,11 @@ function buildCharMap(str) {
 }
 // Solution 2 	
 //============================================================================
-function anagrams2(stringA, stringB) {
-   return cleanString(stringA) === cleanString(stringB);
-}
 function cleanString(str) {
 	return str.replace(/[^\w]/g, '').toLowerCase().split('').sort().join('');
+}
+function anagrams2(stringA, stringB) {
+   return cleanString(stringA) === cleanString(stringB);
 }
 
 </script>

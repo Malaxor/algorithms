@@ -15,9 +15,9 @@ function vowels(str) {
 	const checker = ['a', 'e', 'i', 'o', 'u'];
 	let counter = 0;
 
-	for(let char in str.toLowerCase()) {
+	for(let char of str.toLowerCase()) {
 
-		if(checker.inlcudes(char)) {
+		if(checker.includes(char)) {
 			counter += 1;
 		}
 	}
