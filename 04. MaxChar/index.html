@@ -7,7 +7,7 @@
 <body>
 <script type="text/javascript">
 
-// Solution 
+// Solution  (O(n))
 //=====================================================
 
 function maxChar(str) {
@@ -18,7 +18,7 @@ function maxChar(str) {
       instances: 0
    };
 	for(let char of str) {
-		charMap[char] = charMap[char] + 1 || 1;
+		charMap[char] = ++charMap[char] || 1;
 	}
 	for(let key in charMap) {
 		

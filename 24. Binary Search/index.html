@@ -8,21 +8,21 @@
 <script type="text/javascript">
 
 const nums = [100, 3, 2, 90, 88, 13, 200];
-const sortedNums = [...nums].sort((a, b) => a - b);
+const sortedNums = [...nums].sort((a, b) => a - b); 
 
 function binarySearch(arr, key) {
-   const middleIndex = Math.floor(arr.length / 2);
-   const middleElem = arr[middleIndex];
+   const middleIndex = Math.floor(arr.length / 2); 
+   const middleElem = arr[middleIndex]; 
    // returns number for which we were searching
    // can also return true IF that key is inside the array
    if(middleElem === key) {
 		return true;
 	}
 	else if(middleElem < key && arr.length > 1) {
-		return binarySearch(arr.splice(middleIndex, arr.length), key);
+		return binarySearch(arr.slice(middleIndex, arr.length), key);
 	}
 	else if(middleElem > key && arr.length > 1) {
-		return binarySearch(arr.splice(0, middleIndex), key);
+		return binarySearch(arr.slice(0, middleIndex), key);
 	}
 	// when the key is not present in the num array
 	else {
