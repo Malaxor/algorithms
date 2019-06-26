@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Max Sub-Array Sum</title>
+</head>	
+	
+<body>
+<script type="text/javascript">
+
+// Solution 1: O(n2)
+//=====================================================
+function maxSubArraySum(arr, num) {
+	if(num > arr.length) {
+		return null;
+	}
+	let max = -Infinity;
+	for(let i = 0; i < arr.length - num + 1; i++) {
+		let temp = 0;
+		for(let j = 0; j < num; j++) {
+			temp += arr[i + j];
+		}
+		if(temp > max) {
+			max = temp;
+		}
+	}
+	return max;
+}
+// Solution 2: Sliding Window O(n)
+//=====================================================
+const nums = [1, 10, 45, 55, 23, 23, 69];
+
+function maxSubArraySum2(arr, num) {
+	let maxSum = 0;
+	let tempSum = 0;
+	
+	if(arr.lengthj < num) {
+		return null;
+	}
+	for(let i = 0; i < num; i++) {
+		maxSum += arr[i];
+	}
+	tempSum = maxSum;
+	for(let i = num; i < arr.length; i++) {
+		tempSum = tempSum - arr[i - num] + arr[i];
+		maxSum = Math.max(maxSum, tempSum);
+	}
+	return maxSum;
+}
+
+</script>
+</body>
+</html>
