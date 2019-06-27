@@ -9,11 +9,13 @@
 
 // Solution 1: O(n2)
 //=====================================================
+const nums = [1, 10, 45, 55, 23, 23, 69];
+
 function maxSubArraySum(arr, num) {
 	if(num > arr.length) {
 		return null;
 	}
-	let max = -Infinity;
+	let max = -Infinity; // accounting for an array with all negative numbers
 	for(let i = 0; i < arr.length - num + 1; i++) {
 		let temp = 0;
 		for(let j = 0; j < num; j++) {
@@ -27,15 +29,12 @@ function maxSubArraySum(arr, num) {
 }
 // Solution 2: Sliding Window O(n)
 //=====================================================
-const nums = [1, 10, 45, 55, 23, 23, 69];
-
 function maxSubArraySum2(arr, num) {
-	let maxSum = 0;
-	let tempSum = 0;
-	
-	if(arr.lengthj < num) {
+	if(arr.length < num) {
 		return null;
 	}
+	let maxSum = 0;
+	let tempSum = 0;
 	for(let i = 0; i < num; i++) {
 		maxSum += arr[i];
 	}

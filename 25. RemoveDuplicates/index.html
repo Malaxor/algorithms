@@ -24,22 +24,19 @@ function removeDuplicates(arr) {
 
 // Solution 2 (when the arrangment can be sorted)
 //================================================================
-
 function removeDuplicates2(arr) {
-
-   const sortedArr = arr.sort((a, b) => a - b);
-
-   const b = [];
    let temp;
+   const noDupArr = [];
 
-   sortedArr.forEach(item => {
-      if(item !== temp) {
-         b.push(item);
+   arr.forEach(item => {
+      if(temp !== item) {
+         noDupArr.push(item);
          temp = item;
       }
    });
-   return b;
+   return noDupArr;
 }
+console.log(removeDuplicates2(nums));
 
 // Solution 3 (ES6)
 //================================================================
