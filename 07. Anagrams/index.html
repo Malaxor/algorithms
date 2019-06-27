@@ -10,7 +10,6 @@
 // Solution 1 	
 //============================================================================
 function anagrams(stringA, stringB) {
-	
 	const aCharMap = buildCharMap(stringA);
 	const bCharMap = buildCharMap(stringB);
 
@@ -25,7 +24,6 @@ function anagrams(stringA, stringB) {
 	return true;
 }
 function buildCharMap(str) {
-
 	const charMap = {};
 	const clean_str = str.replace(/[^\w]/g, '').toLowerCase();
 

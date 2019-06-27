@@ -17,14 +17,14 @@ function longestSubstring(str) {
    for(let i = 0; i < str.length; i++) {
       let char = str[i];
       if(seen[char]) {
-         start = Math.max(start, i); 
+         start = Math.max(start, seen[char]); 
       }
       longest = Math.max(longest, i - start + 1); 
       seen[char] = i + 1;
    }
    return longest;
 }
-console.log(longestSubstring('abacd'));
+console.log(longestSubstring('abcdabcdef'));
 
 </script>
 </body>

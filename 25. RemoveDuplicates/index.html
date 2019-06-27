@@ -13,9 +13,7 @@ const nums = [1, 1, 2, 3, 3, 4];
 
 // Solution 1 (when keeping the arrangment matters)
 //================================================================
-
 function removeDuplicates(arr) {
-
    const results = arr.filter((item, index) => {
       return array.indexOf(item) === index; 
    });
@@ -26,11 +24,11 @@ function removeDuplicates(arr) {
 //================================================================
 function removeDuplicates2(arr) {
    let temp;
-   const noDupArr = [];
+   const uniqueValues = [];
 
    arr.forEach(item => {
       if(temp !== item) {
-         noDupArr.push(item);
+         uniqueValues.push(item);
          temp = item;
       }
    });
