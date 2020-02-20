@@ -10,14 +10,12 @@
 // Bubble Sort
 //================================================================
 const nums = [100, 49, 3, 0, 28];
+
 function bubbleSort(arr) {
-
 	for(let i = 0; i < arr.length; i++) {
-
 		for(let j = 0; j < (arr.length - i - 1); j++) {
 
 			if(arr[j] > arr[j + 1]) {
-
 				let lesser = arr[j + 1];
 				arr[j + 1] = arr[j];
 				arr[j] = lesser;
@@ -31,20 +29,16 @@ function bubbleSort(arr) {
 //================================================================
 
 function selectionSort(arr) {
-
 	for(let i = 0; i < arr.length; i++) {
-
 		let indexOfmin = i; 
 
 		for(let j = i + 1; j < arr.length; j++) {
-
 			if(arr[j] < arr[indexOfmin]) {
 
 				indexOfmin = j;
 			}
 		}
 		if(indexOfmin !== i) {
-
 			let lesser = arr[indexOfmin];
 			arr[indexOfmin] = arr[i];
 			arr[i] = lesser;
@@ -73,7 +67,6 @@ function mergeSort(arr) {
 // left side: merge([97], [0]);
 // right side: merge([22],[-30]);
 function merge(left, right) {
-
 	const results = [];
 
 	while(left.length && right.length) {

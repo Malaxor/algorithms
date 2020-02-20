@@ -7,7 +7,7 @@
 <body>
 <script type="text/javascript">
 
-// Solution  (O(n))
+// Solution O(n)
 //=====================================================
 function maxChar(str) {
 	const charMap = {};
@@ -15,7 +15,9 @@ function maxChar(str) {
       characters: [],
       instances: 0
 	};
-	
+	// remove all non alphanumeric (including _ and spaces) characters and convert to lower case
+	str = str.replace(/[\W_]/g, '').toLowerCase();
+
 	for(let char of str) {
 		charMap[char] = ++charMap[char] || 1;
 	}
@@ -27,6 +29,7 @@ function maxChar(str) {
 	}
 	return charObj;
 }
+console.log(maxChar('$_ hello HHH, idiot who. are you'));
 
 </script>
 </body>

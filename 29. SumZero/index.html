@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Longest Substring of Unique Characters</title>
+</head>	
+	
+<body>
+<script type="text/javascript">
+// Write a function whose array input is checked to discover if two of its elements, when added, equal 0
+// The items in the array must be numbers sorted in ascending order
+// The function will return the two elements that, when added equal zero
+
+
+// Solution
+//=====================================================
+function sumZero(arr) {
+   let left = 0;
+   let right = arr.length - 1;
+
+   while(left < right) {
+      let sum = arr[left] + arr[right];
+
+      if(sum === 0) {
+         return [arr[left], arr[right]];
+      }
+      else if(sum > 0) {
+         right--;
+      }
+      else {
+         left++;
+      }
+   }
+}
+
+</script>
+</body>
+</html>

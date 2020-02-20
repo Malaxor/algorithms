@@ -11,7 +11,6 @@
 //=============================================================================
 
 class Queue {
-	
 	constructor() {
 		this.array = [];
 	}
@@ -25,12 +24,11 @@ class Queue {
 		return this.array[this.array.length - 1];
 	}
 }
+
 function weave(source1, source2) {
-	
 	const q = new Queue();
 	
 	while(source1.peek() !== undefined || source2.peek() !== undefined) {
-
 		if(source1.peek() !== undefined) {
 			q.add(source1.remove());
 		}

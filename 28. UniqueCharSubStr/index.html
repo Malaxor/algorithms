@@ -24,7 +24,42 @@ function longestSubstring(str) {
    }
    return longest;
 }
-console.log(longestSubstring('abcdabcdef'));
+console.log(longestSubstring('ababc'));
+// 1st iteration
+// longest = 1;
+// start = 0;
+// seen {
+//   a: 1 
+// }
+// 2nd iteration
+// longest = 2
+// start = 0
+// seen {
+// a: 1,
+// b: 2 
+// }
+// 3rd iteration
+// longest = 2
+// start = 1
+// seen {
+//  a: 3,
+//  b: 2  
+// }
+// 4th iteration
+// longest = 2
+// start = 2
+// seen {
+//  a: 3,
+//  b: 4  
+// }
+// 5th iteration
+// longest = 3
+// start = 2;
+// seen {
+//  a: 3,
+//  b: 4,
+//  c: 5  
+// }
 
 </script>
 </body>

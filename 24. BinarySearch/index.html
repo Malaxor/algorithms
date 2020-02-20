@@ -16,17 +16,17 @@ function binarySearch(arr, key) {
    // returns number for which we were searching
    // can also return true IF that key is inside the array
    if(middleElem === key) {
-		return `Index: ${middleIndex}`;
+		return `The item ${key} is found at index ${middleIndex}.`;
 	}
 	else if(middleElem < key && arr.length > 1) {
-		return binarySearch(arr.slice(middleIndex, arr.length), key);
+		return binarySearch(arr.slice(middleIndex), key);
 	}
 	else if(middleElem > key && arr.length > 1) {
 		return binarySearch(arr.slice(0, middleIndex), key);
 	}
-	// when the key is not present in the num array
+	// when the key is not in the array
 	else {
-		return false;
+		return `The key ${key} is not found.`;
 	}
 }
 console.log(binarySearch(nums, 3));

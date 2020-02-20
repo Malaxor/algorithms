@@ -9,11 +9,20 @@
 // Solution 1
 //=============================================================
 function reverse(str) {
-	return [...str].reverse().join('');
+	// check input
+	if(!str || str.length < 2 || typeof str !== 'string') {
+		throw Error(`Argument is either missing, not a string or has a length of only one character.`);
+	}
+	const reversed = str.split(''). reverse().join('');
+	return reversed;
 }
 // Solution 2
 //==============================================================
 function reverse2(str) {
+	// check input
+	if(!str || str.length < 2 || typeof str !== 'string') {
+		throw Error(`Argument is missing, not a string or has a length of only one character.`);
+	}
 	let reversed = '';
 	for(let char of str) {
 		reversed = char + reversed;
@@ -23,6 +32,10 @@ function reverse2(str) {
 // Solution 3
 //==============================================================
 function reverse3(str) {
+	// check input
+	if(!str || str.length < 2 || typeof str !== 'string') {
+		throw Error(`Argument is missing, not a string or has a length of only one character.`);
+	}
 	return [...str].reduce((rev, char) => char + rev, '');
 }
 
