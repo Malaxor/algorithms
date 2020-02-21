@@ -7,6 +7,8 @@
 <body>
 <script type="text/javascript">
 
+// Write a function that accepts a sorted array and counts the unique values in the array.
+
 // Solution 1: Multiple Pointers O(n)
 //=====================================================
 function countUniqueValues(arr) {
@@ -17,10 +19,11 @@ function countUniqueValues(arr) {
       return 0;
    }   
    let i = 0;
+
    for(let j = 1; j < arr.length; j++) {
       if(arr[i] !== arr[j]) {
          i++;
-         arr[i] = arr[j]
+         arr[i] = arr[j];
       }
    }
    return i + 1;

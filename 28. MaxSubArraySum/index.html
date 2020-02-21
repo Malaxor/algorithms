@@ -7,44 +7,43 @@
 <body>
 <script type="text/javascript">
 
-// Solution 1: O(n2)
+// Solution: Sliding Window O(n)
 //=====================================================
-const nums = [1, 10, 45, 55, 23, 23, 69];
+
+// 1st iteration:
+// maxSum = 7
+// tempSum = maxSum --> 7
+// for loop runs from index 3 to end of array
+// i = 3
+// tempSum = 7 - 1 + 20 --> 26
+// maxSum = Math.max(7, 26) --> 26
+
+// 2nd iteration:
+// for loop runs from 4 to end of array
+// i = 4
+// tempSum = 26 - 2 + 40 --> 64
+// maxSum = 64
+const nums2 = [1, 2, 4, 20, 30, 50];
 
 function maxSubArraySum(arr, num) {
-	if(num > arr.length) {
-		return null;
-	}
-	let max = -Infinity; // accounting for an array with all negative numbers
-	for(let i = 0; i < arr.length - num + 1; i++) {
-		let temp = 0;
-		for(let j = 0; j < num; j++) {
-			temp += arr[i + j];
-		}
-		if(temp > max) {
-			max = temp;
-		}
-	}
-	return max;
-}
-// Solution 2: Sliding Window O(n)
-//=====================================================
-function maxSubArraySum2(arr, num) {
 	if(arr.length < num) {
 		return null;
 	}
-	let maxSum = 0;
 	let tempSum = 0;
+	let maxSum = 0;
+
 	for(let i = 0; i < num; i++) {
 		maxSum += arr[i];
 	}
 	tempSum = maxSum;
-	for(let i = num; i < arr.length; i++) {
-		tempSum = tempSum - arr[i - num] + arr[i];
-		maxSum = Math.max(maxSum, tempSum);
+
+	for(let j = num; j < arr.length; j++) {
+		tempSum = tempSum - arr[j - num] + arr[j];
+		maxSum = Math.max(tempSum, maxSum);
 	}
 	return maxSum;
 }
+console.log(maxSubArraySum(nums2, 3));
 
 </script>
 </body>
