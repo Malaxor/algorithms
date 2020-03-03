@@ -31,7 +31,7 @@ function binarySearch(arr, key) {
 		return `The key ${key} is not found.`;
 	}
 }
-console.log(binarySearch(nums, 3));
+// console.log(binarySearch(nums, 3));
 
 // Solution 2
 //=====================================================================
@@ -48,14 +48,14 @@ function binarySearch2(arr, key) {
 			start = middle + 1;
 		}
 		middle = Math.floor((start + end) / 2);
-	} 
+	}
 	if(arr[middle] === key) {
 		return `The key ${key} is at index ${middle}.`;
 	}
 	return `The key ${key} is not in the array.`;
 }
 const nums2 = [0, 4, 8, 19, 33, 38, 41];
-console.log(binarySearch2(nums2, 41))
+console.log(binarySearch2(nums2, 0));
 
 </script>
 </body>

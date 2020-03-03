@@ -19,7 +19,7 @@ function countUniqueValues(arr) {
    if(arr.length === 0) {
       return 0;
    }
-   if(arguments.length < 1) {
+   if(arguments.length > 1) {
       throw Error('Invalid number of arguments: Function only accepts one argument.')
    }   
    let i = 0;

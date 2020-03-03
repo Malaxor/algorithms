@@ -28,7 +28,8 @@ function bubbleSort(arr) {
 	}
 	return arr;
 }
-// console.log(bubbleSort(nums))
+
+console.log(bubbleSort(nums))
 
 // Selection Sort
 //================================================================
@@ -51,7 +52,8 @@ function selectionSort(arr) {
 	}
 	return arr;
 }
-// console.log(selectionSort(nums2));
+
+console.log(selectionSort(nums2));
 
 // Insertion Sort
 //================================================================
@@ -108,49 +110,7 @@ const nums3 = [100, 49, 3, 28];
 // j = 0
 // arr[j] = 3 --> 3 is smaller than curVal of 28, so the loop does not run
 // arr[j + 1] = 28 [3, <28>, 49, 100]
-
 console.log(insertionSort(nums3));
-
-// Merge Sort
-//================================================================
-// example: const nums = [97, 0, 22, -30];
-function mergeSort(arr) {
-	if(arr.length === 1) {
-		return arr;
-	}
-	const center = Math.floor(arr.length / 2); // index 2 // [97, 0, <22>, -30]
-	const left = arr.slice(0, center); // [97, 0] 
-	const right = arr.slice(center); // [22, -30] 
-	// for clarity, i've replaced variables const left and const right with their values
-	// first call: merge(mergeSort([97, 0]), mergeSort([22, -30]));
-	/* merge(LEFT SIDE, RIGHT SIDE) */
-	// second call(left side): merge(mergeSort([97]), mergeSort([0]));
-	// second call(right side): merge(mergeSort([22]), mergeSort([-30]));
-	return merge(mergeSort(left), mergeSort(right));
-}
-// left side: merge([97], [0]);
-// right side: merge([22],[-30]);
-function merge(left, right) {
-	const results = [];
-
-	while(left.length && right.length) {
-		// left = [97] ; right = [0]
-		// left = [22] ; right = [-30]
-		if(left[0] < right[0]) {
-			results.push(left.shift());
-		} 
-		else {
-			// left side: results = [0] // right = [97];
-			// right side: results = [-30] // left = [22];
-			results.push(right.shift());
-		}
-	}
-	// left side: return array = [0, 97];
-	// right side: return array = [-30, 22];
-	return [...results, ...left, ...right];
-}
-
-
 
 
 </script>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sorting</title>
+</head>	
+	
+<body>
+<script type="text/javascript">
+
+// Solution 1
+//=========================================================================
+function mergeArr(arr1, arr2) {
+	const results = [];
+	let i = 0;
+	let j = 0;
+
+	while(i < arr1.length && j < arr2.length) {
+		if(arr1[i] < arr2[j]) {
+			results.push(arr1[i]);
+			i++;
+		}
+		else {
+			results.push(arr2[j]);
+			j++;
+		}
+	}
+	if(i < arr1.length) {
+		results.push(...arr1.slice(i));
+	}
+	if(j < arr2.length) {
+		results.push(...arr2.slice(j));
+	}
+	return results;
+}
+
+function mergeSort2(arr) {
+	if(arr.length <= 1) return arr;
+
+	let mid = Math.floor(arr.length / 2);
+	let left = mergeSort2(arr.slice(0, mid));
+	let right = mergeSort2(arr.slice(mid));
+	return mergeArr(left, right);
+}
+// first call:
+// arr = [100, 4, 45, 0, 16, 78]
+// arr.length = 6
+// mid = 3
+// left = mergeSort2([100, 4, 45])
+
+// second call:
+// arr = [100, 4, 45]
+// arr.length = 3
+// mid = 1
+// left = mergeSort2([100])
+
+// third call:
+// arr = [100]
+// arr.length = 1
+// if statement runs and RETURNS arr, which is [100]
+// the third invocation is popped off the stack
+
+// we're back to the second call:
+// arr = [100, 4, 45]
+// arr.length = 3
+// mid = 1
+// left = [100]
+// right = mergeSort2([4, 45])
+
+// new invocation is added to the call stack (4th call)
+// arr = [4, 45]
+// arr.length = 2
+// mid = 1
+// left = mergeSort2([4])
+
+// 5th call
+// arr = [4]
+// arr.length = 1
+// if statement runs and RETURNS arr, which is [4]
+// 5th invocation is popped off the stack
+
+// we're back to the 4th call
+// arr = [4, 45]
+// arr.length = 2
+// mid = 1
+// left = [4]
+// right = mergeSort([45])
+
+// new invocation is added to the call stack (6th call)
+
+
+
+
+
+
+mergeSort2([100, 4, 45, 0, 16, 78]);
+
+
+
+
+</script>
+</body>
+</html>
