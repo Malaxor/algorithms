@@ -34,68 +34,54 @@ function mergeArr(arr1, arr2) {
 }
 
 function mergeSort2(arr) {
-	if(arr.length <= 1) return arr;
+	if(arr.length < 2) return arr;
 
-	let mid = Math.floor(arr.length / 2);
-	let left = mergeSort2(arr.slice(0, mid));
-	let right = mergeSort2(arr.slice(mid));
+	const mid = Math.floor(arr.length / 2);
+	const left = mergeSort2(arr.slice(0, mid));
+	const right = mergeSort2(arr.slice(mid));
 	return mergeArr(left, right);
 }
-// first call:
-// arr = [100, 4, 45, 0, 16, 78]
-// arr.length = 6
-// mid = 3
-// left = mergeSort2([100, 4, 45])
-
-// second call:
-// arr = [100, 4, 45]
-// arr.length = 3
-// mid = 1
-// left = mergeSort2([100])
-
-// third call:
-// arr = [100]
-// arr.length = 1
-// if statement runs and RETURNS arr, which is [100]
-// the third invocation is popped off the stack
-
-// we're back to the second call:
-// arr = [100, 4, 45]
-// arr.length = 3
-// mid = 1
-// left = [100]
-// right = mergeSort2([4, 45])
-
-// new invocation is added to the call stack (4th call)
-// arr = [4, 45]
-// arr.length = 2
-// mid = 1
-// left = mergeSort2([4])
-
-// 5th call
-// arr = [4]
-// arr.length = 1
-// if statement runs and RETURNS arr, which is [4]
-// 5th invocation is popped off the stack
-
-// we're back to the 4th call
-// arr = [4, 45]
-// arr.length = 2
-// mid = 1
-// left = [4]
-// right = mergeSort([45])
-
-// new invocation is added to the call stack (6th call)
+console.log(mergeSort2([100, 45, 4, 16, 78, 0]));
 
 
+// Solution 2
+//================================================================
+// example: const nums = [97, 0, 22, -30];
+function mergeSort(arr) {
+	if(arr.length === 1) {
+		return arr;
+	}
+	const center = Math.floor(arr.length / 2); // index 2 // [97, 0, <22>, -30]
+	const left = arr.slice(0, center); // [97, 0] 
+	const right = arr.slice(center); // [22, -30] 
+	// for clarity, i've replaced variables const left and const right with their values
+	// first call: merge(mergeSort([97, 0]), mergeSort([22, -30]));
+	/* merge(LEFT SIDE, RIGHT SIDE) */
+	// second call(left side): merge(mergeSort([97]), mergeSort([0]));
+	// second call(right side): merge(mergeSort([22]), mergeSort([-30]));
+	return merge(mergeSort(left), mergeSort(right));
+}
+// left side: merge([97], [0]);
+// right side: merge([22],[-30]);
+function merge(left, right) {
+	const results = [];
 
-
-
-
-mergeSort2([100, 4, 45, 0, 16, 78]);
-
-
-
+	while(left.length && right.length) {
+		// left = [97] ; right = [0]
+		// left = [22] ; right = [-30]
+		if(left[0] < right[0]) {
+			results.push(left.shift());
+		} 
+		else {
+			// left side: results = [0] // right = [97];
+			// right side: results = [-30] // left = [22];
+			results.push(right.shift());
+		}
+	}
+	// left side: return array = [0, 97];
+	// right side: return array = [-30, 22];
+	return [...results, ...left, ...right];
+}
 
 </script>
 </body>
