@@ -1,36 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Sorting</title>
+	<title>Quick Sort</title>
 </head>	
 	
 <body>
 <script type="text/javascript">
 
-// Solution 
+// Quick Sort 
 //=========================================================================
-function swap(arr, i, j) {
-	let temp = arr[i];
-	arr[i] = arr[j];
-	arr[j] = temp;
+function swap(arr, x, y) {
+	let temp = arr[x];
+	arr[x] = arr[y];
+	arr[y] = temp;
 }
+function pivot(arr) {
+	let start = 0;
+	let end = arr.length + 1;
 
-function pivot(arr, start = 0, end = arr.length - 1) {
-	let pivot = arr[start];
-	let swapIdx = start;
+	let pivotIdx = start; // tracks the number of items that are smaller than the pivot
+	let pivot = arr[start]; // places the pivot accurately between numbers bigger and smaller than it
 
 	for(let i = start + 1; i < arr.length; i++) {
-		if(pivot > arr[i]) {
-			swapIdx++;
-			swap(arr, swapIdx, i);
+		if(arr[i] < pivot) {
+			pivotIdx++;
+			swap(arr, pivotIdx, i); // swap the smaller value at arr[i] with the bigger value at arr[pivotIndx]
 		}
 	}
-	swap(arr, start, swapIdx);
-	return swapIdx;
+	swap(arr, start, pivotIdx);
+	return pivotIdx;
 }
-const pivt = pivot([4, 8, 2, 1, 5, 7, 6, 3]);
-console.log(pivt);
-
+console.log(pivot([4, 8, 2, 1, 5, 7, 6, 3])); 
+// after second interation [4, 2, 8, 1, 5, 7, 6, 3]
+// after third iteration [4, 2, 1, 8, 5, 7, 6, 3]
+// fourth through sixth iterations don't run the if statement
+// after seventh iteration [4, 2, 1, 3, 5, 7, 6, 8]
+// outside the forloop, we swap the start value with the pivotInd value
+// [3, 2, 1, 4, 5, 7, 6, 8]
 
 </script>
 </body>

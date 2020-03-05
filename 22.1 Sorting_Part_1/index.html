@@ -17,7 +17,7 @@ const nums = [100, 49, 3, 0, 28];
 
 function bubbleSort(arr) {
 	for(let i = 0; i < arr.length; i++) {
-		for(let j = 0; j < (arr.length - i - 1); j++) {
+		for(let j = 0; j < arr.length - i - 1; j++) {
 
 			if(arr[j] > arr[j + 1]) {
 				let lesser = arr[j + 1];
@@ -28,8 +28,7 @@ function bubbleSort(arr) {
 	}
 	return arr;
 }
-
-console.log(bubbleSort(nums))
+console.log(bubbleSort(nums));
 
 // Selection Sort
 //================================================================
@@ -52,7 +51,6 @@ function selectionSort(arr) {
 	}
 	return arr;
 }
-
 console.log(selectionSort(nums2));
 
 // Insertion Sort
@@ -111,7 +109,6 @@ const nums3 = [100, 49, 3, 28];
 // arr[j] = 3 --> 3 is smaller than curVal of 28, so the loop does not run
 // arr[j + 1] = 28 [3, <28>, 49, 100]
 console.log(insertionSort(nums3));
-
 
 </script>
 </body>
