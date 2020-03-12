@@ -10,10 +10,6 @@
 // Bubble Sort
 //================================================================
 const nums = [100, 49, 3, 0, 28];
-//           [49, 100, 3, 0, 28] first inner iteration j = 0
-//           [49, 3, 100, 0, 28] second inner iteration j = 1
-// 			 [49, 3, 0, 100, 28] third inner iteration j = 2
-//           [49, 3, 0, 28, 100] forth inner iteration j = 3
 
 function bubbleSort(arr) {
 	for(let i = 0; i < arr.length; i++) {
@@ -30,7 +26,7 @@ function bubbleSort(arr) {
 }
 console.log(bubbleSort(nums));
 
-// Selection Sort
+// Selection Sort (sorts ascendingly)
 //================================================================
 const nums2 = [100, 49, 3, 0, 28];
 
@@ -56,7 +52,7 @@ console.log(selectionSort(nums2));
 // Insertion Sort
 //================================================================
 function insertionSort(arr) {
-	for(var i = 1; i < arr.length; i++) {
+	for(var i = 0; i < arr.length; i++) {
 		let curVal = arr[i];
 
 		for(var j = i - 1; j >= 0 && arr[j] > curVal; j--) {
@@ -66,48 +62,7 @@ function insertionSort(arr) {
 	}
 	return arr;
 }
-const nums3 = [100, 49, 3, 28];
-// 1st iteration
-// i = 1
-// curVal = 49
-// inner for lop runs because j is 0 and 100(arr[j]) is bigger than 49(curVal), but stops after the first iteration
-// arr[j + 1] = 49 arr[j] = 100 --> arr[j + 1] = 100
-// [100, 100, 3, 0, 28]
-// outside the inner for loop, j is actually -1 and not 0. the for loop stopped after the first iteration because j
-// --> got decremented to -1, a number that failed the comparison j >= 0. 
-// arr[j + 1] = 49 NOTE: j = -1, so -1 + 1 = 0
-// [49, 100, 3, 0, 28]
-
-// 2nd iteration
-// i = 2
-//curVal = 3
-// inner loop first iteration:
-// j = 1 
-// arr[j] = 100 --> 100 is bigger than curVal of 3
-// arr[j + 1] = 100 [49, 100, <100>, 0, 28]
-// inner loop second iteration:
-// j = 0
-// arr[j] = 49 --> 49 is bigger than curVal of 3
-// arr[j + 1] = 49 [49, <49>, 100, 0, 28]
-// inner loop stops and j is at -1 (j = -1)
-// arr[j + 1] = 3
-// [3, 49, 100, 28]
-
-// last iteration
-// i = 3
-// curVal = 28
-// inner loop first iteration:
-// j = 2
-// arr[j] = 100 --> 100 is bigger than curVal of 28
-// arr[j + 1] = 100 [3, 49, 100, <100>]
-// inner loop second iteration:
-// j = 1
-// arr[j] = 49 --> 49 is bigger than curVal of 28
-// arr[j + 1] = 49 [3, 49, 49, 100]
-// inner loop third iteration:
-// j = 0
-// arr[j] = 3 --> 3 is smaller than curVal of 28, so the loop does not run
-// arr[j + 1] = 28 [3, <28>, 49, 100]
+const nums3 = [100, 49, 3, 0, 28];
 console.log(insertionSort(nums3));
 
 </script>

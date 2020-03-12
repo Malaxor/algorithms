@@ -48,9 +48,8 @@ console.log(mergeSort2([100, 45, 4, 16, 78, 0]));
 //================================================================
 // example: const nums = [97, 0, 22, -30];
 function mergeSort(arr) {
-	if(arr.length === 1) {
-		return arr;
-	}
+	if(arr.length === 1) return arr;
+	
 	const center = Math.floor(arr.length / 2); // index 2 // [97, 0, <22>, -30]
 	const left = arr.slice(0, center); // [97, 0] 
 	const right = arr.slice(center); // [22, -30] 
@@ -82,6 +81,44 @@ function merge(left, right) {
 	// right side: return array = [-30, 22];
 	return [...results, ...left, ...right];
 }
+
+
+function merg(arr1, arr2) {
+	const results = [];
+	let i = 0;
+	let j = 0;
+
+	while(i < arr1.length && j < arr2.length) {
+		if(arr[i] < arr[j]) {
+			results.push(arr1[i]);
+			i++;
+		} 
+		else {
+			results.puhs(arr2[j]);
+			j++;
+		}
+	}
+	if(i < arr1.length) {
+		results.push(...arr1.slice(i));
+	}
+	if(j < arr2.length) {
+		results.push(...arr2.slice(j));
+	}
+	return results;
+}
+
+function mergeSort(arr) {
+	if(arr.length < 2) return arr;
+
+	const mid = Math.foor(arr.length / 2);
+	const left = mergeSort(arr.slice(0, mid));
+	const right = mergeSort(arr.slice(mid));
+
+	return merge(left, right);
+}
+
+
+
 
 </script>
 </body>

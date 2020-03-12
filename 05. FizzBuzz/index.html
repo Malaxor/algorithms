@@ -12,18 +12,17 @@
 
 function fizzBuzz(n) {
 	for(let i = 1; i <= n; i++) {
-
 		if(i % 15 === 0) {
-			return 'FizzBuzz!';
+			console.log('FizzBuzz!', i);
 		}
 		else if(i % 3 === 0) {
-			return 'Fizz';
+			console.log('Fizz', i);
 		}
 		else if(i % 5 === 0) {
-			return 'Buzz';
+			console.log('Buzz', i);
 		}
 		else {
-			return i;
+			console.log(i);
 		}
 	}
 }
