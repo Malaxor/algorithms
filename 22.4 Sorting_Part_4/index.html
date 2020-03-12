@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Quick Sort</title>
+</head>	
+	
+<body>
+<script type="text/javascript">
+
+// Quick Sort 
+//=========================================================================
+function swap(arr, s, i) {
+	let temp = arr[s];
+	arr[s] = arr[i];
+	arr[i] = temp;
+}
+function pivot(arr, start = 0, end) {
+	let pivotIdx = start; // tracks the number of items that are smaller than the pivot
+	let pivot = arr[start]; // places the pivot accurately between numbers bigger and smaller than it
+
+	for(let i = start + 1; i < arr.length; i++) {
+		if(arr[i] < pivot) {
+			pivotIdx++;
+			swap(arr, pivotIdx, i); // swap the smaller value at arr[pivotIdx] with the bigger value at arr[i]
+		}
+	}
+	swap(arr, start, pivotIdx); // swap pivot for the element at pivotIdx
+	return pivotIdx; 
+}
+function quickSort(arr, left = 0, right = arr.length) {
+	if(left < right) { // base case: when left and right point to the same index, this if statement will fail
+		const pivotIndex = pivot(arr, left, right);
+		quickSort(arr, left, pivotIndex - 1); // sort all the elements left of the pivotIndex
+		quickSort(arr, pivotIndex + 1, right); // sort all the elements right of the pivotIndex
+	}
+	return arr;
+}
+console.log(quickSort([4, 8, 2, 1, 5, 7, 6, 3])); 
+
+</script>
+</body>
+</html>
