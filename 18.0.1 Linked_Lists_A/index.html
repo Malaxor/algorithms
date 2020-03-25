@@ -7,16 +7,14 @@
 <body>
 <script type="text/javascript">
 		
-// Solution 
+// Solution 1
 //========================================================
-
 class Node {
 	constructor(data, next = null) {
 		this.data = data; 
 		this.next = next;
 	}
 }
-
 class LinkedList {
 	constructor() {
 		this.head = null;
@@ -44,7 +42,7 @@ class LinkedList {
 		let node = this.head;
 		
 		while(node) {
-			// checks for null value
+			// if node.next === null, return node, which will be the last node
 			if(!node.next) {
 				return node;
 			}
@@ -102,7 +100,6 @@ class LinkedList {
 		return null;
 	}
 	removeAt(index) {
-
 		if(!this.head) {
 			return;
 		} 
@@ -120,13 +117,11 @@ class LinkedList {
 		previous.next = previous.next.next;
 	}
 	insertAt(data, index) {
-
 		if(!this.head) {
 			this.head = new Node(data);
 			return;
 		}
 		if(index === 0) {
-
 			this.head = new Node(data, this.head);
 			return;
 		}
@@ -137,15 +132,15 @@ class LinkedList {
 		previous.next = node;
 	}
 	*[Symbol.iterator] () {
-
 		let node = this.head;
+		
 		while(node) {
-			
 			yield node;
 			node = node.next;
 		}
 	}
 }
+
 
 </script>
 </body>

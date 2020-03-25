@@ -22,6 +22,7 @@ function pivot(arr, start = 0, end) {
 		if(arr[i] < pivot) {
 			pivotIdx++;
 			swap(arr, pivotIdx, i); // swap the smaller value at arr[pivotIdx] with the bigger value at arr[i]
+			console.log(arr);
 		}
 	}
 	swap(arr, start, pivotIdx); // swap pivot for the element at pivotIdx
@@ -35,7 +36,7 @@ function quickSort(arr, left = 0, right = arr.length) {
 	}
 	return arr;
 }
-console.log(quickSort([4, 8, 2, 1, 5, 7, 6, 3])); 
+console.log(quickSort([4, 2, 8, 1, 5, 7, 6, 3])); 
 
 </script>
 </body>

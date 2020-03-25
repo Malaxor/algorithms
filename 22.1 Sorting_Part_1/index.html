@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Sorting</title>
+	<title>Bubble Sort, Selection Sort, Insertion Sort</title>
 </head>	
 	
 <body>
@@ -52,7 +52,7 @@ console.log(selectionSort(nums2));
 // Insertion Sort
 //================================================================
 function insertionSort(arr) {
-	for(var i = 0; i < arr.length; i++) {
+	for(var i = 1; i < arr.length; i++) {
 		let curVal = arr[i];
 
 		for(var j = i - 1; j >= 0 && arr[j] > curVal; j--) {
