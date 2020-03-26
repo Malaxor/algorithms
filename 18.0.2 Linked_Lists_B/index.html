@@ -54,20 +54,29 @@ class SinglyLinkedList {
 		}
 		return current;
 	}
+	shift() {
+		if(!this.head) return;
+
+		let currentHead = this.head;
+		this.head = currentHead.next;
+		this.length--;
+		if(this.length === 0) {
+			this.tail = null;
+		}
+		return currentHead;
+	}	
 }
-// crap --> mo --> stank
-//                   c
-//          p 
+
 
 
 const yo = new SinglyLinkedList();
 yo.push('crap');
 yo.push('mo');
 console.log(yo.push('stank'));
-yo.pop();
-yo.pop();
-yo.pop()
-console.log(yo)
+console.log(yo.shift());
+console.log(yo.shift());
+console.log(yo.shift())
+console.log(yo);
 
 
 
