@@ -26,7 +26,7 @@ class SinglyLinkedList {
 		// if there aren't any nodes
 		if(!this.head) {
 			this.head = node;
-			this.tail = this.head;
+			this.tail = node;
 		} 
 		else {
 			this.tail.next = node;
@@ -35,11 +35,42 @@ class SinglyLinkedList {
 		this.length++;
 		return this;
 	}
+	pop() {
+		if(!this.head) return undefined;
+		let current = this.head;
+		let previous = current;
+
+		while(current.next) {
+			previous = current;
+			current = current.next;
+		}
+		this.tail = previous;
+		this.tail.next = null;
+		this.length--;
+	
+		if(this.length === 0) {
+			this.head = null;
+			this.tail = null;
+		}
+		return current;
+	}
 }
+// crap --> mo --> stank
+//                   c
+//          p 
+
+
 const yo = new SinglyLinkedList();
-yo.push('sucker');
-yo.push('clockers');
-console.log(yo.push('fuckers'));
+yo.push('crap');
+yo.push('mo');
+console.log(yo.push('stank'));
+yo.pop();
+yo.pop();
+yo.pop()
+console.log(yo)
+
+
+
 
 
 </script>
