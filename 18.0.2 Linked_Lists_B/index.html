@@ -89,6 +89,15 @@ class SinglyLinkedList {
 			counter++;
 		}
 		return current;
+	}
+	set(index, val) {
+		const item = this.get(index);
+		
+		if(item) {
+			item.val = val;
+			return true;
+		}
+		return false;
 	}	
 }
 
