@@ -78,7 +78,7 @@ class SinglyLinkedList {
 		}
 		this.length++;
 		return this;
-	}
+	} // returns a node
 	get(index) {
 		if(index < 0 || index >= this.length) return null;
 		let counter = 0;
@@ -89,15 +89,28 @@ class SinglyLinkedList {
 			counter++;
 		}
 		return current;
-	}
+	} // updates the value of a node 
 	set(index, val) {
 		const item = this.get(index);
-		
+
 		if(item) {
 			item.val = val;
 			return true;
 		}
 		return false;
+	}
+	insert(index, val) {
+		if(index < 0 || index > this.length) return false;
+		if(index === this.length) return !!this.push(val);
+		if(index === 0) return !!this.unshift(val);
+
+		const node = new Node(val);
+		const previous = this.get(index - 1); // before the new node
+		let oldNode = previous.next; // position of the old node, which will come after the new node 
+		previous.next = node;
+		node.next = oldNode;
+		this.length++;
+		return true;
 	}	
 }
 
