@@ -78,6 +78,17 @@ class SinglyLinkedList {
 		}
 		this.length++;
 		return this;
+	}
+	get(index) {
+		if(index < 0 || index >= this.length) return null;
+		let counter = 0;
+		let current = this.head;
+
+		while(counter !== index) {
+			current = current.next;
+			counter++;
+		}
+		return current;
 	}	
 }
 
@@ -88,7 +99,7 @@ yo.push('crap');
 console.log(yo.push('mo'));
 console.log(yo.push('stank'));
 console.log(yo.unshift('MEEEE'));
-// console.log(yo.shift());
+console.log(yo.get(2))
 // console.log(yo.shift());
 // console.log(yo.shift())
 // console.log(yo);
