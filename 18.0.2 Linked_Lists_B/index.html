@@ -26,7 +26,7 @@ class SinglyLinkedList {
 		// if there aren't any nodes
 		if(!this.head) {
 			this.head = node;
-			this.tail = node;
+			this.tail = this.head;
 		} 
 		else {
 			this.tail.next = node;
@@ -64,6 +64,20 @@ class SinglyLinkedList {
 			this.tail = null;
 		}
 		return currentHead;
+	}
+	unshift(val) {
+		const node = new Node(val);
+
+		if(!this.head) {
+			this.head = node;
+			this.tail = this.head;
+		}
+		else {
+			node.next = this.head;
+			this.head = node;
+		}
+		this.length++;
+		return this;
 	}	
 }
 
@@ -71,12 +85,13 @@ class SinglyLinkedList {
 
 const yo = new SinglyLinkedList();
 yo.push('crap');
-yo.push('mo');
+console.log(yo.push('mo'));
 console.log(yo.push('stank'));
-console.log(yo.shift());
-console.log(yo.shift());
-console.log(yo.shift())
-console.log(yo);
+console.log(yo.unshift('MEEEE'));
+// console.log(yo.shift());
+// console.log(yo.shift());
+// console.log(yo.shift())
+// console.log(yo);
 
 
 
