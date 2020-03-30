@@ -123,15 +123,31 @@ class SinglyLinkedList {
 		previous.next = removed.next; 
 		this.length--;
 		return removed;
+	}
+	reverse() {
+		let previous = null;
+		let next;
+		let node = this.head;
+		this.head = this.tail;
+		this.tail = node;
+
+		for(let i = 0; i < this.length; i++) {
+			next = node.next;
+			node.next = previous;
+			previous = node;
+			node = next;
+		}
+		return this;
 	}	
 }
 
 
 
 const yo = new SinglyLinkedList();
-yo.push('crap');
-console.log(yo.push('mo'));
-console.log(yo.push('stank'));
+yo.push(1);
+console.log(yo.push(2));
+console.log(yo.push(3));
+console.log(yo.reverse());
 // console.log(yo.shift());
 // console.log(yo.shift())
 // console.log(yo);
