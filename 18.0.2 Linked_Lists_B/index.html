@@ -44,6 +44,9 @@ class SinglyLinkedList {
 			previous = current;
 			current = current.next;
 		}
+		// [1, 2, 3]
+		//      c
+		//     p
 		this.tail = previous;
 		this.tail.next = null;
 		this.length--;
@@ -57,13 +60,14 @@ class SinglyLinkedList {
 	shift() {
 		if(!this.head) return;
 
-		let currentHead = this.head;
-		this.head = currentHead.next;
+		const head = this.head;
+		this.head = head.next;
 		this.length--;
+
 		if(this.length === 0) {
 			this.tail = null;
 		}
-		return currentHead;
+		return head;
 	}
 	unshift(val) {
 		const node = new Node(val);
@@ -80,21 +84,21 @@ class SinglyLinkedList {
 		return this;
 	} // returns a node
 	get(index) {
-		if(index < 0 || index >= this.length) return null;
+		if(index < 0 || index > this.length - 1) return undefined;
 		let counter = 0;
-		let current = this.head;
+		let node = this.head;
 
 		while(counter !== index) {
-			current = current.next;
+			node = node.next;
 			counter++;
 		}
-		return current;
+		return node;
 	} // updates the value of a node 
 	set(index, val) {
-		const item = this.get(index);
+		const node = this.get(index);
 
-		if(item) {
-			item.val = val;
+		if(node) {
+			node.val = val;
 			return true;
 		}
 		return false;
@@ -104,11 +108,12 @@ class SinglyLinkedList {
 		if(index === this.length) return !!this.push(val);
 		if(index === 0) return !!this.unshift(val);
 
-		const node = new Node(val);
-		const previous = this.get(index - 1); // before the new node
-		let oldNode = previous.next; // position of the old node, which will come after the new node 
-		previous.next = node;
-		node.next = oldNode;
+		const newNode = new Node(val);
+		const beforeNewNode = this.get(index - 1); // before the new node
+		const afterNewNode = beforeNewNode.next; // position of the old node, which will come after the new node 
+
+		beforeNewNode.next = newNode;
+		newNode.next = afterNewNode;
 		this.length++;
 		return true;
 	}
@@ -125,11 +130,12 @@ class SinglyLinkedList {
 		return removed;
 	}
 	reverse() {
-		let previous = null;
-		let next;
 		let node = this.head;
 		this.head = this.tail;
 		this.tail = node;
+
+		let previous = null;
+		let next;
 
 		for(let i = 0; i < this.length; i++) {
 			next = node.next;
@@ -141,13 +147,12 @@ class SinglyLinkedList {
 	}	
 }
 
-
-
 const yo = new SinglyLinkedList();
-yo.push(1);
+console.log(yo.push(1));
 console.log(yo.push(2));
 console.log(yo.push(3));
 console.log(yo.reverse());
+// console.log(yo.push(3));
 // console.log(yo.shift());
 // console.log(yo.shift())
 // console.log(yo);

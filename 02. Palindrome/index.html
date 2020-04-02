@@ -11,9 +11,9 @@
 //=====================================================
 const palindrome = str => {
 	// remove all non alphanumeric (including _ and spaces) characters and convert to lower case
-	str = str.replace(/[\W_]/g, '').toLowerCase();
+	const clean_str = str.replace(/[\W_]/g, '').toLowerCase();
 	const reversed = str.split('').reverse().join('');
-	return str === reversed;
+	return clean_str === reversed;
 }
 
 // Solution 2
