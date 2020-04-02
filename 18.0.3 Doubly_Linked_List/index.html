@@ -37,8 +37,23 @@ class DoubleLinkedList {
 		this.length++;
 		return this;
 	}
-}
+	pop() {
+		if(!this.node) return;
+		let poppedNode = this.tail;
 
+		if(this.head === 1) {
+			this.head = null;
+			this.tail = null;
+		}
+		else {
+			this.tail = poppedNode.previous;
+			this.tail.next = null;
+			poppedNode.prev = null;
+		}
+		this.length--;
+		return poppedNode;
+	}
+}
 
 </script>
 </body>

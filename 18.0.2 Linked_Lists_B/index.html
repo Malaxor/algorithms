@@ -36,17 +36,14 @@ class SinglyLinkedList {
 		return this;
 	}
 	pop() {
-		if(!this.head) return null;
-		let current = this.head;
-		let previous = current;
+		if(!this.head) return;
+		let node = this.head;
+		let previous = node;
 
-		while(current.next) {
-			previous = current;
-			current = current.next;
+		while(node.next) {
+			previous = node;
+			node = node.next;
 		}
-		// [1, 2, 3]
-		//      c
-		//     p
 		this.tail = previous;
 		this.tail.next = null;
 		this.length--;
