@@ -83,8 +83,31 @@ class DoubleLinkedList {
 		}
 		this.length++;
 		return this;
+	} // returns node
+	get(index) {
+		if(index < 0 || index >= this.length) return undefined;
+		// count from the start to the middle
+		if(index <= this.length / 2) {
+			let count = 0;
+			let current = this.head;
+
+			while(count !== index) {
+				current = current.next;
+				count++;
+			}
+			return current;
+		} // count backwards from the last index to the middle
+		else {
+			let count = this.length - 1;
+			let current = this.tail;
+
+			while(count !== index) {
+				current = current.prev;
+				count--;
+			}
+		}
+		return current; 
 	}
-	//[1, 2, 3, 4]
 }
 
 </script>
