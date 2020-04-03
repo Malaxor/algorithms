@@ -108,6 +108,15 @@ class DoubleLinkedList {
 		}
 		return current; 
 	}
+	set(index, val) {
+		const node = this.get(index);
+
+		if(node) {
+			node.val = val;
+			return true;
+		}
+		return false;
+	}
 }
 
 </script>
