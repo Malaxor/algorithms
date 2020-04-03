@@ -69,6 +69,22 @@ class DoubleLinkedList {
 		this.length--;
 		return removedHead;
 	}
+	unshift(val) {
+		const node = new Node(val);
+
+		if(!this.head) {
+			this.head = node;
+			this.tail = node;
+		}
+		else {
+			this.head.previous = node;
+			node.next = this.head;
+			this.head = node;
+		}
+		this.length++;
+		return this;
+	}
+	//[1, 2, 3, 4]
 }
 
 </script>
