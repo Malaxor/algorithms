@@ -36,7 +36,7 @@ function reverse3(str) {
 	if(!str || str.length < 2 || typeof str !== 'string') {
 		throw Error(`Argument is missing, not a string or has a length of only one character.`);
 	}
-	return [...str].reduce((rev, char) => char + rev, '');
+	return [...str].reduce((reversed, char) => char + reversed, '');
 }
 
 </script>
