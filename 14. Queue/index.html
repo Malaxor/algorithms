@@ -7,14 +7,14 @@
 <body>
 <script type="text/javascript">
 		
-// Solution 
+// Solution (FIFO)
 //======================================================
 class Queue {
 	constructor() {
 		this.array = [];
 	}
-	add(record) {
-		this.array.unshift(record);
+	add(value) {
+		this.array.unshift(value);
 	}
 	remove() {
 		return this.array.pop();

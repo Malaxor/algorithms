@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Stacks</title>
+</head>
+<body>
+<script type="text/javascript">
+		
+// Solution (LIFO)
+//========================================================
+class Node {
+	constructor(val, next = null) {
+		this.value = val;
+		this.next = next;
+	}
+}
+class Stack {
+	constructor() {
+		this.first = null;
+		this.last = null;
+		this.size = 0;
+	}
+	unshift(val) {
+		const node = new Node(val);
+
+		if(!this.first) {
+			this.first = node;
+			this.last = this.first;
+		}
+		else {
+			const last = this.last;
+			this.last = node;
+			this.last.next = last;
+		}
+		return ++this.size;
+	}
+	shift() {
+		if(!this.first) return undefined;
+		const remove = this.last;
+
+		if(this.first === this.last) {
+			this.first = null;
+		}
+		this.last = this.last.next;
+		this.size--;
+		return remove;
+	}
+}
+const stack = new Stack();
+stack.unshift('first')
+stack.unshift('middle')
+stack.unshift('last')
+
+
+</script>
+</body>
+</html>

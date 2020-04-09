@@ -89,24 +89,24 @@ class DoubleLinkedList {
 		// count from the start to the middle
 		if(index <= this.length / 2) {
 			let count = 0;
-			let current = this.head;
+			let node = this.head;
 
 			while(count !== index) {
-				current = current.next;
+				node = node.next;
 				count++;
 			}
-			return current;
+			return node;
 		} // count backwards from the last index to the middle
 		else {
 			let count = this.length - 1;
-			let current = this.tail;
+			let node = this.tail;
 
 			while(count !== index) {
-				current = current.prev;
+				node = node.prev;
 				count--;
 			}
 		}
-		return current; 
+		return node; 
 	}
 	set(index, val) {
 		const node = this.get(index);
@@ -135,9 +135,9 @@ class DoubleLinkedList {
 		return true;
 	}
 	remove(index) {
+		if(index < 0 || index >= this.length) return undefined;
 		if(index === 0) return !!this.shift();
 		if(index === this.length - 1) return !!this.pop();
-		if(index < 0 || index >= this.length) return undefined;
 
 		const beforeNode = this.get(index - 1);
 		const removedNode = this.get(index);
