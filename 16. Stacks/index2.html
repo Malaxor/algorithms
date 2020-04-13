@@ -28,9 +28,9 @@ class Stack {
 			this.last = this.first;
 		}
 		else {
-			const last = this.last;
+			const nextNode = this.last;
 			this.last = node;
-			this.last.next = last;
+			this.last.next = nextNode;
 		}
 		return ++this.size;
 	}
