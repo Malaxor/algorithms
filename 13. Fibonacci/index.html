@@ -8,15 +8,14 @@
 <script type="text/javascript">
 		
 // Solution 1 (Linear Runtime)
-//======================================================
-
+//===========================================================
 function fib(n) {
 	const result = [0, 1]; 
 	const map = {};
 
-	for(let i = 2; i <= n; i++) {
-		const a = result[i - 1]; 
-		const b = result[i - 2]; 
+	for(let i = 2; i < n; i++) {
+		const a = result[i - 1];
+		const b = result[i - 2];
 		result.push(a + b);
 	}
 	for(let i = 0; i < result.length; i++) {
@@ -24,10 +23,10 @@ function fib(n) {
 	}
 	return map;
 }
+console.log(fib(10))
 
 // Solution 2 (Exponential Runtime AVOID)
-//======================================================
-
+//=========================================================
 function fib2(n) {
 	if(n < 2) {
 		return n;
@@ -35,26 +34,6 @@ function fib2(n) {
 	return fib2(n - 1) + fib2(n - 2);
 }
 
-// Solution 2 (with generic memoization function)
-//======================================================
-
-// const fib2 = memoize(fib2)
-
-// function memoize(fn) {
-
-// 	const cache = {};
-
-// 	return function(...args) {
-
-// 		if(cache[args]) {
-// 			return cache[args];
-// 		}
-// 		const result = fn.apply(this, args);
-// 		cache[args] = result;
-
-// 		return result;
-// 	};
-// }
 
 </script>
 </body>

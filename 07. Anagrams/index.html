@@ -25,10 +25,10 @@ function anagrams(stringA, stringB) {
 }
 function buildCharMap(str) {
 	const charMap = {};
-	const clean_str = str.replace(/[^\w]/g, '').toLowerCase(); // remove all non-alpha numeric characters 
+	const clean_str = str.replace(/[\W_]/g, '').toLowerCase(); // remove all non-alpha numeric characters 
 
 	for(let char of clean_str) {
-		charMap[char] = charMap[char] + 1 || 1;
+		charMap[char] = ++charMap[char] || 1;
 	}
 	return charMap;
 }

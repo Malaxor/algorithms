@@ -9,18 +9,29 @@
 
 // Solution 
 //=============================================================
-const numbers = [0, 1, 0, 2, 3, 5, 0, 10, 88];
+const numbers = [0, 0, 0, 2, 3, 5, 0, 10, 88];
 
 function moveZeros(arr) {
    const zeros = [];
 	const nonZeros = [];
 	
-	arr.forEach(num => 
-	   num === 0 ? zeros.push(num) : nonZeros.push(num)
-	);
+	arr.forEach(num => num === 0 ? zeros.push(num) : nonZeros.push(num));
 	return [...nonZeros, ...zeros];	
 }
-
+function moveZeros2(arr) {
+	for(let i = 0; i < arr.length; i++) {
+		for(let j = 0; j < arr.length - i - 1; j++) {
+			
+			if(arr[j] === 0 && arr[j + 1] !== 0) {
+				const zero = arr[j];
+				arr[j] = arr[j + 1];
+				arr[j + 1] = zero;
+			}
+		}
+	}
+	return arr;
+}
+console.log(moveZeros2(numbers));
 console.log(moveZeros(numbers));
 
 </script>

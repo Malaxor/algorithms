@@ -18,9 +18,9 @@ function longestSubstring(str) {
       let char = str[i];
 
       if(seen[char]) {
-         start = Math.max(start, seen[char]); 
+         start = Math.max(start, seen[char]);
       }
-      longest = Math.max(longest, i - start + 1); 
+      longest = Math.max(longest, i - start + 1);
       seen[char] = i + 1;
    }
    return longest;
@@ -55,7 +55,7 @@ console.log(longestSubstring('ababc'));
 // }
 // 5th iteration
 // longest = 3
-// start = 2;
+// start = 2
 // seen {
 //  a: 3,
 //  b: 4,

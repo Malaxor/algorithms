@@ -8,17 +8,16 @@
 <script type="text/javascript">
 
 // Bubble Sort
-//================================================================
+//=================================================================
 const nums = [100, 49, 3, 0, 28];
 
 function bubbleSort(arr) {
 	for(let i = 0; i < arr.length; i++) {
 		for(let j = 0; j < arr.length - i - 1; j++) {
-
 			if(arr[j] > arr[j + 1]) {
-				let lesser = arr[j + 1];
+				let smaller = arr[j + 1];
 				arr[j + 1] = arr[j];
-				arr[j] = lesser;
+				arr[j] = smaller;
 			}
 		}
 	}
@@ -27,7 +26,7 @@ function bubbleSort(arr) {
 console.log(bubbleSort(nums));
 
 // Selection Sort
-//================================================================
+//======================================================================
 const nums2 = [100, 49, 3, 0, 28];
 
 function selectionSort(arr) {
@@ -39,10 +38,11 @@ function selectionSort(arr) {
 				indexOfmin = j;
 			}
 		}
+		// code won't run if the second for loop didn't swap any indexes
 		if(indexOfmin !== i) {
-			let lesser = arr[indexOfmin];
+			let smaller = arr[indexOfmin];
 			arr[indexOfmin] = arr[i];
-			arr[i] = lesser;
+			arr[i] = smaller;
 		}
 	}
 	return arr;
@@ -62,7 +62,8 @@ function insertionSort(arr) {
 	}
 	return arr;
 }
-const nums3 = [100, 49, 3, 0, 28];
+const nums3 = [0, 100, 53, 49, 3, 0, 28];
+
 console.log(insertionSort(nums3));
 
 </script>

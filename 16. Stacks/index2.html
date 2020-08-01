@@ -28,29 +28,29 @@ class Stack {
 			this.last = this.first;
 		}
 		else {
-			const nextNode = this.last;
+			const lastNext = this.last;
 			this.last = node;
-			this.last.next = nextNode;
+			this.last.next = lastNext;
 		}
 		return ++this.size;
 	}
 	shift() {
 		if(!this.first) return undefined;
-		const remove = this.last;
+		const removed = this.last;
 
 		if(this.first === this.last) {
 			this.first = null;
 		}
 		this.last = this.last.next;
 		this.size--;
-		return remove;
+		return removed;
 	}
 }
-const stack = new Stack();
-stack.unshift('first')
-stack.unshift('middle')
-stack.unshift('last')
 
+const stack = new Stack();
+stack.unshift('first');
+stack.unshift('middle');
+stack.unshift('last');
 
 </script>
 </body>

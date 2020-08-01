@@ -8,25 +8,20 @@
 <script type="text/javascript">
 
 // Solution O(n)
-//=====================================================
 function maxChar(str) {
 	const charMap = {};
-   const charObj = {
-      characters: [],
-      instances: 0
-	};
+	const charObj = {};
 	// remove all non alphanumeric (including _ and spaces) characters and convert to lower case
 	str = str.replace(/[\W_]/g, '').toLowerCase();
 
 	for(let char of str) {
 		charMap[char] = ++charMap[char] || 1;
 	}
-	for(let key in charMap) {
-		if(charMap[key] >= charObj.instances) {
-			charObj.instances = charMap[key];
-			charObj.characters.push(key);
-		}
-	}
+	const max = Math.max(...Object.values(charMap));
+	const chars = Object.keys(charMap).filter(key => charMap[key] === max);
+
+	charObj.char = chars;
+	charObj.eachCharMax = max;
 	return charObj;
 }
 console.log(maxChar('philip'));

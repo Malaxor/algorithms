@@ -13,14 +13,14 @@
 //=====================================================
 function countUniqueValues(arr) {
    if(!arr) return;
-   if(Object.prototype.toString.call(arr) !== '[object Array]') {
-      throw Error('Invalid argument: Function only accepts arrays.');
+   if(toString.call(arr) !== '[object Array]') {
+      throw Error('Function only accepts arrays.');
    }
    if(arr.length === 0) {
       return 0;
    }
    if(arguments.length > 1) {
-      throw Error('Invalid number of arguments: Function only accepts one argument.')
+      throw Error('Function only accepts one argument.');
    }   
    let i = 0;
 
@@ -31,13 +31,11 @@ function countUniqueValues(arr) {
       }
    }
    return i + 1;
+   // to return a new array without the duplicates
+   // return arr.slice(0, i + 1)
 }
 const arr = [1, 1, 1, 2, 2, 3, 4];
-console.log(countUniqueValues([])); // 4
-
-
-
-
+console.log(countUniqueValues('arr')); // 4
 </script>
 </body>
 </html>

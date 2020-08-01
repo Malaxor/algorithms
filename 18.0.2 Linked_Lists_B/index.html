@@ -23,7 +23,7 @@ class SinglyLinkedList {
 	}
 	push(val) {
 		const node = new Node(val);
-		// if there aren't any nodes
+
 		if(!this.head) {
 			this.head = node;
 			this.tail = this.head;
@@ -52,10 +52,10 @@ class SinglyLinkedList {
 			this.head = null;
 			this.tail = null;
 		}
-		return current;
+		return node;
 	}
 	shift() {
-		if(!this.head) return;
+		if(!this.head) return undefined;
 
 		const head = this.head;
 		this.head = head.next;
@@ -80,10 +80,8 @@ class SinglyLinkedList {
 		this.length++;
 		return this;
 	}
-	// [2, 1]
-	 // returns a node
 	get(index) {
-		if(index < 0 || index > this.length - 1) return undefined;
+		if(index < 0 || index >= this.length) return undefined;
 		let counter = 0;
 		let node = this.head;
 
@@ -92,7 +90,7 @@ class SinglyLinkedList {
 			counter++;
 		}
 		return node;
-	} // updates the value of a node 
+	} 
 	set(index, val) {
 		const node = this.get(index);
 
@@ -117,7 +115,7 @@ class SinglyLinkedList {
 		return true;
 	}
 	remove(index) {
-		if(index < 0 || index >= this.length) return null;
+		if(index < 0 || index >= this.length) return undefined;
 		if(index === 0) return this.shift();
 		if(index === this.length - 1) return this.pop();
 
@@ -148,9 +146,6 @@ class SinglyLinkedList {
 
 const yo = new SinglyLinkedList();
 console.log(yo.push(1));
-console.log(yo.push(2));
-console.log(yo.push(3));
-console.log(yo.reverse());
 // console.log(yo.push(3));
 // console.log(yo.shift());
 // console.log(yo.shift())

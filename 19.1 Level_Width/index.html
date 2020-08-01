@@ -11,43 +11,34 @@
 //================================================================
 
 class Node {
-
 	constructor(data) {
-
 		this.data = data;
 		this.children = [];
 	}
 	add(data) {
-
 		const node = new Node(data);
 		this.children.push(node);
 	}
 	remove(data) {
-
 		this.children = this.children.filter(node => 
 			// keep only the elements that DO NOT equal 'data'
 			node.data !== data
 		);
 	}
 }
-
 // root = Node
 function levelWidth(root) {
-
 	const arr = [root, 's'];
 	const counter = [0];
 
 	while(arr.length > 1) {
-
 		const node = arr.shift();
 
 		if(node === 's') {
-
 			counter.push(0);
 			arr.push('s');
 		}
 		else {
-
 			arr.push(...node.children);
 			counter[counter.length - 1]++;
 		}

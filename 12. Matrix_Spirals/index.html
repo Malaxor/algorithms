@@ -16,7 +16,6 @@ function matrix(n) {
 	for(let i = 0; i < n; i++) {
 		results.push([]);
 	}
-
 	let counter  = 1;
 	let startCol = 0;
 	let endCol   = n - 1;
@@ -24,7 +23,6 @@ function matrix(n) {
 	let endRow   = n - 1;
 
 	while(startCol <= endCol && startRow <= endRow) {
-
 		// TOP ROW
 		// Ex: If we call matrix(3), then const results = [ [<1>, <2>, <3>], [], [] ];
 		// IMPORTANT: This for loop will execute the last index
@@ -35,12 +33,10 @@ function matrix(n) {
 		// 	[7, 6, 5]
 		// ];
 		for(let i = startCol; i <= endCol; i++) {
-
 			results[startRow][i] = counter;
 			counter++;
 		}
 		startRow++;
-
 		// RIGH COLUMN
 		//Ex: If we call matrix(3) -->
 		// const results = 
@@ -50,12 +46,10 @@ function matrix(n) {
 		// 	[null, null, <5>]
 		// ];
 		for(let i = startRow; i <= endRow; i++) {
-
 			results[i][endCol] = counter;
 			counter++;
 		}
 		endCol--;
-
 		// BOTTOM ROW
 		//Ex: If we call matrix(3) -->
 		// const results = 
@@ -65,12 +59,10 @@ function matrix(n) {
 		// 	[<7>, <6>, 5]
 		// ];
 		for(let i = endCol; i >= startCol; i--) {
-
 			results[endRow][i] = counter;
 			counter++;
 		}
 		endRow--;
-
 		// START COLUMN
 		//Ex: If we call matrix(3) -->
 		// const results = 
@@ -80,7 +72,6 @@ function matrix(n) {
 		// 	[7, 6, 5]
 		// ];
 		for(let i = endRow; i >= startRow; i--) {
-
 			results[i][startCol] = counter;
 			counter++;
 		}

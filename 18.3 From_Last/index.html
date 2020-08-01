@@ -12,7 +12,6 @@
 
 // returns the node at 'n' spaces from the last index in the list, NOT including the space(index) of the last element
 function fromLast(list, n) {
-
 	let slow = list.getFirst(); // list.head is also valid
 	let fast = list.getFirst();
 
@@ -28,7 +27,6 @@ function fromLast(list, n) {
 }
 
 class Node {
-	
 	constructor(data, next = null) {
 		this.data = data; 
 		this.next = next;
@@ -36,7 +34,6 @@ class Node {
 }
 
 class LinkedList {
-
   constructor(values = []) {
     this.head = null;
 
@@ -44,11 +41,9 @@ class LinkedList {
       this.insertLast(value);
     }
   }
-
   clear() {
     this.head = null;
   }
-
   size() {
     let counter = 0;
     let node = this.head;
@@ -57,15 +52,12 @@ class LinkedList {
       counter++;
       node = node.next;
     }
-
     return counter;
   }
-
   getAt(index) {
     if (!this.head) {
       return null;
     }
-
     let counter = 0;
     let node = this.head;
     while (node) {
@@ -77,23 +69,20 @@ class LinkedList {
     }
     return null;
   }
-
   insertAt(data, index) {
     if (!this.head) {
       this.head = new Node(data);
       return;
     }
-
     if (index === 0) {
       this.head = new Node(data, this.head);
       return;
     }
-
     let counter = 1;
     let previous = this.head;
     let node = this.head.next;
-    while (node) {
-      if (counter === index) {
+    while(node) {
+      if(counter === index) {
         previous.next = new Node(data, node);
         return;
       }
@@ -101,7 +90,6 @@ class LinkedList {
       node = node.next;
       counter++;
     }
-
     previous.next = new Node(data, node);
   }
 

@@ -9,14 +9,13 @@
 		
 // Solution 1 	
 //=============================================================================================
-
 function vowels(str) {
 	const checker = ['a', 'e', 'i', 'o', 'u'];
 	let counter = 0;
 
 	for(let char of str.toLowerCase()) {
 		if(checker.includes(char)) {
-			counter += 1;
+			counter++;
 		}
 	}
    return counter;
@@ -24,7 +23,6 @@ function vowels(str) {
 
 // Solution 2	
 //=============================================================================================
-
 function vowels2(str) {
 	// g = checks globally(doesn't stop at first instance).
 	// i = case insensitive.
